@@ -95,4 +95,3 @@ Puedes personalizar aún más:
 - Incluyendo un pequeño manual de estilo
 - Añadiendo créditos por imágenes o recursos externos
 - Incorporando un changelog si el proyecto sigue evolucionando
-- 
