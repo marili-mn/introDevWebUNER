@@ -89,3 +89,10 @@ Este README.md incluye:
 6. **Checklist** de requisitos cumplidos para el TP1
 7. **Roadmap** con las mejoras planeadas para el TP2
 8. **Información de licencia**
+
+Puedes personalizar aún más:
+- Agregando capturas de pantalla
+- Incluyendo un pequeño manual de estilo
+- Añadiendo créditos por imágenes o recursos externos
+- Incorporando un changelog si el proyecto sigue evolucionando
+- 
