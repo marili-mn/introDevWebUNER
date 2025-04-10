@@ -21,7 +21,7 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
 - Maria Belen Colado
 
 ## Estructura del Sitio
-```text
+<pre>
 /idw-sa/
 * ├── css/ # Archivos de estilos
 * │ └── styles.css # Hoja de estilos principal
@@ -30,7 +30,7 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
 * ├── institucional.html # Información corporativa
 * ├── contacto.html # Formulario de contacto
 * └── README.md # Este archivo
-```
+</pre>
 
 ## Tecnologías Utilizadas
 
