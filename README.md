@@ -56,7 +56,7 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
    git push origin main
 
 ## Requisitos para TP1
-<pre>✅ Estructura HTML básica
+<pre> ✅ Estructura HTML básica
  ✅ Conexión a CSS
  ✅ Páginas mínimas requeridas (Inicio, Institucional, Contacto)
  ✅ Estilo establecido para la estructura web
