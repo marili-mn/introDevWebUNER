@@ -6,11 +6,11 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
 
 ## Características del Proyecto
 
-- 🏛️ Página de inicio con catálogo de salones disponibles
-- 🏢 Sección institucional con información de la empresa
-- 📞 Página de contacto con formulario interactivo
-- 💻 Diseño responsive (adaptable a móviles y tablets)
-- 🎨 Estilos modernos y atractivos
+- 🏛️  Página de inicio con catálogo de salones disponibles
+- 🏢  Sección institucional con información de la empresa
+- 📞  Página de contacto con formulario interactivo
+- 💻  Diseño responsive (adaptable a móviles y tablets)
+- 🎨  Estilos modernos y atractivos
 
 ## Integrantes del Equipo
 
@@ -23,13 +23,13 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
 ## Estructura del Sitio
 
 /idw-sa/
-├── css/ # Archivos de estilos
-│ └── styles.css # Hoja de estilos principal
-├── images/ # Imágenes del sitio
-├── index.html # Página principal
-├── institucional.html # Información corporativa
-├── contacto.html # Formulario de contacto
-└── README.md # Este archivo
+*├── css/ # Archivos de estilos
+*│  └── styles.css # Hoja de estilos principal
+*├── images/ # Imágenes del sitio
+*├── index.html # Página principal
+*├── institucional.html # Información corporativa
+*├── contacto.html # Formulario de contacto
+*└── README.md # Este archivo
 
 
 ## Tecnologías Utilizadas
@@ -55,31 +55,31 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
 5. Sube tus cambios al repositorio:
    git push origin main
 
-Requisitos para TP1
-✅ Estructura HTML básica
-✅ Conexión a CSS
-✅ Páginas mínimas requeridas (Inicio, Institucional, Contacto)
-✅ Estilo establecido para la estructura web
-✅ Lista de integrantes
+## Requisitos para TP1
+* ✅ Estructura HTML básica
+* ✅ Conexión a CSS
+* ✅ Páginas mínimas requeridas (Inicio, Institucional, Contacto)
+* ✅ Estilo establecido para la estructura web
+* ✅ Lista de integrantes
 
-Próximas Mejoras (TP2)
-Implementación de Bootstrap
+## Próximas Mejoras (TP2)
+- Implementación de Bootstrap
 
-Mejora de la barra de navegación
+- Mejora de la barra de navegación
 
-Carrusel de imágenes
+- Carrusel de imágenes
 
-Formularios más interactivos
+- Formularios más interactivos
 
-Optimización para SEO
+- Optimización para SEO
 
-Licencia
+## Licencia
 Este proyecto está bajo la licencia MIT. Ver el archivo LICENSE para más detalles.
 
 © 2025 IDW S.A. - Todos los derechos reservados
 
 
-Este README.md incluye:
+### Este README.md incluye:
 
 1. **Presentación clara** del proyecto y sus características principales
 2. **Lista completa** de integrantes del equipo
@@ -90,7 +90,7 @@ Este README.md incluye:
 7. **Roadmap** con las mejoras planeadas para el TP2
 8. **Información de licencia**
 
-Puedes personalizar aún más:
+### Puedes personalizar aún más:
 - Agregando capturas de pantalla
 - Incluyendo un pequeño manual de estilo
 - Añadiendo créditos por imágenes o recursos externos
