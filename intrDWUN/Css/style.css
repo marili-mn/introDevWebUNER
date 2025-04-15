@@ -31,6 +31,8 @@ header {
     margin-bottom: 15px;
 }
 
+
+/* Estilos del menú de navegación */
 .nav-menu {
     display: flex;
     justify-content: center;
@@ -46,20 +48,40 @@ header {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
+    padding: 5px 0;
+    position: relative;
 }
 
 .nav-menu a:hover {
-    color: #f1c40f;
+    color: #f1c40f; /* Cambia a amarillo al pasar el mouse */
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #f1c40f; /* Color amarillo para el subrayado */
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%; /* Muestra el subrayado completo al pasar el mouse */
 }
 
 /* Hero section */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.jpg');
+    background: linear-gradient(
+        rgba(0,0,0,0.5), 
+        rgba(0,0,0,0.5)), 
+        url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 50px 20px;
     margin-bottom: 40px;
 }
 
@@ -153,7 +175,7 @@ header {
 footer {
     background-color: #2c3e50;
     color: white;
-    padding: 40px 0 20px;
+    padding: 40px 10px 40px;
     margin-top: 60px;
 }
 
@@ -162,6 +184,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-bottom: 30px;
+    padding: 0 20px;
 }
 
 .footer-section h4 {
@@ -300,162 +323,5 @@ footer {
     
     .footer-content {
         grid-template-columns: 1fr;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Estilos del menú hamburguesa */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #2c3e50;
-    position: relative;
-}
-
-.hamburger {
-    display: none; /* Oculto en desktop */
-    padding: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.hamburger-box {
-    width: 30px;
-    height: 24px;
-    display: inline-block;
-    position: relative;
-}
-
-.hamburger-inner {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background-color 0.2s ease;
-}
-
-.hamburger-inner::before,
-.hamburger-inner::after {
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    position: absolute;
-    left: 0;
-    transition: transform 0.2s ease;
-}
-
-.hamburger-inner::before {
-    top: -8px;
-}
-
-.hamburger-inner::after {
-    top: 8px;
-}
-
-/* Menú abierto */
-.hamburger--active .hamburger-inner {
-    background-color: transparent;
-}
-
-.hamburger--active .hamburger-inner::before {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger--active .hamburger-inner::after {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Estilos del menú de navegación */
-.main-nav {
-    transition: transform 0.3s ease;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-}
-
-.nav-menu li {
-    margin: 0 15px;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-    padding: 5px 0;
-    position: relative;
-}
-
-.nav-menu a:hover {
-    color: #f1c40f;
-}
-
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #f1c40f;
-    transition: width 0.3s;
-}
-
-.nav-menu a:hover::after {
-    width: 100%;
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block; /* Mostrar en mobile */
-    }
-    
-    .main-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: #2c3e50;
-        padding: 80px 20px 20px;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-        z-index: 999;
-    }
-    
-    .main-nav--open {
-        transform: translateX(-100%);
-    }
-    
-    .nav-menu {
-        flex-direction: column;
-    }
-    
-    .nav-menu li {
-        margin: 15px 0;
-    }
-    
-    .nav-menu a {
-        font-size: 1.1rem;
     }
 }
