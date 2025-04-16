@@ -3,105 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conoce más sobre IDW S.A. - Salones para eventos y fiestas infantiles">
+    <meta name="description" content="Conoce más sobre IDW S.A. - Especialistas en salones para eventos y fiestas infantiles">
     <title>Información Institucional - IDW S.A</title>
     <link rel="stylesheet" href="Css/style.css">
-    <link rel="icon" href="Images/logo.ico" type="image/x-icon">
+    <link rel="icon" href="Images/logo_1.ico" type="image/x-icon">
+    
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="Images/logo-idw.jpg" alt="Logo IDW S.A." width="50">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="Images/logo-idw.jpg" alt="Logo IDW S.A." width="75">
+                </a>
+            </div>
+            
+            <button class="hamburger" aria-label="Menú">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="institucional.html" class="active">Institucional</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="institucional.html">Información Institucional</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main class="container">
+    <main class="main-content">
         <section class="about-section">
-            <h1>Acerca de IDW S.A.</h1>
+            <div class="section-header">
+                <h1>Acerca de IDW S.A.</h1>
+                <p class="section-subtitle">Más de una década creando eventos memorables</p>
+            </div>
             
             <article class="mission-vision">
                 <div class="mv-card">
-                    <h2>Misión</h2>
+                    <h2><i class="icon-mission"></i> Nuestra Misión</h2>
                     <p>Proporcionar espacios de calidad para eventos sociales y corporativos, ofreciendo servicios personalizados que superen las expectativas de nuestros clientes.</p>
                 </div>
                 
                 <div class="mv-card">
-                    <h2>Visión</h2>
+                    <h2><i class="icon-vision"></i> Nuestra Visión</h2>
                     <p>Ser reconocidos como líderes en el mercado de salones para eventos, destacando por nuestra innovación, calidad de servicio y atención personalizada.</p>
                 </div>
                 
                 <div class="mv-card">
-                    <h2>Valores</h2>
+                    <h2><i class="icon-values"></i> Nuestros Valores</h2>
                     <ul>
                         <li>Compromiso con la excelencia</li>
                         <li>Atención personalizada</li>
                         <li>Responsabilidad social</li>
                         <li>Innovación constante</li>
+                        <li>Integridad en cada acción</li>
+                        <li>Pasión por lo que hacemos</li>
                     </ul>
                 </div>
             </article>
             
             <article class="history">
                 <h2>Nuestra Historia</h2>
-                <p>Fundada en 2010, IDW S.A. comenzó como un pequeño salón para fiestas infantiles. Con el tiempo, gracias a la confianza de nuestros clientes y nuestro compromiso con la calidad, hemos crecido hasta convertirnos en una de las principales empresas del sector, con tres salones en diferentes ubicaciones de la ciudad.</p>
-                <img src="images/historia.jpg" alt="Nuestro primer salón en 2010" class="history-img">
+                <div class="history-content">
+                    <p>Fundada en 2010, IDW S.A. comenzó como un pequeño salón para fiestas infantiles en el corazón de la ciudad. Lo que empezó como un emprendimiento familiar pronto se convirtió en un referente del sector gracias a nuestra dedicación y atención al detalle.</p>
+                    <p>Con el tiempo, gracias a la confianza de nuestros clientes y nuestro compromiso con la calidad, hemos crecido hasta convertirnos en una de las principales empresas del sector, con salones en diferentes ubicaciones estratégicas de la ciudad.</p>
+                    <p>Hoy contamos con un equipo multidisciplinario de profesionales que comparten nuestra filosofía de trabajo y nuestro entusiasmo por crear experiencias únicas para cada uno de nuestros clientes.</p>
+                    <img src="Images/salon_historia.jpeg" alt="Nuestro primer salón en 2010" class="history-img">
+                </div>
             </article>
             
             <article class="team">
-                <h2>Nuestro Equipo</h2>
+                <h2>Conoce a Nuestro Equipo</h2>
+                <p class="team-subtitle">El talento humano que hace posible cada evento especial</p>
+                
                 <div class="team-grid">
                     <div class="team-member">
-                        <img src="images/team1.jpg" alt="Directora General">
+                        <img src="Images/Veronica.jpeg" alt="Verónica Peluffo - Directora General">
                         <h3>Verónica Peluffo</h3>
                         <p>Directora General</p>
+                        <p class="team-bio">Con más de 15 años de experiencia en la industria de eventos.</p>
                     </div>
+                    
                     <div class="team-member">
-                        <img src="images/team2.jpg" alt="Gerente de Operaciones">
+                        <img src="Images/Emma.jpeg" alt="Emanuel Conte - Gerente de Operaciones">
                         <h3>Emanuel Conte</h3>
                         <p>Gerente de Operaciones</p>
+                        <p class="team-bio">Especialista en logística y coordinación de eventos.</p>
                     </div>
+                    
                     <div class="team-member">
-                        <img src="images/team3.jpg" alt="Jefa de Administración">
+                        <img src="Images/Andrea.jpeg" alt="Andrea Romero - Jefa de Administración">
                         <h3>Andrea Romero</h3>
                         <p>Jefa de Administración</p>
+                        <p class="team-bio">Contadora pública con amplia experiencia en gestión.</p>
                     </div>
+                    
                     <div class="team-member">
-                        <img src="images/team4.jpg" alt="Jefa de Eventos">
-                        <h3>Maria Belen Colado</h3>
+                        <img src="Images/Belén.jpeg" alt="María Belén Colado - Jefa de Eventos">
+                        <h3>María Belén Colado</h3>
                         <p>Jefa de Eventos</p>
+                        <p class="team-bio">Creativa especializada en diseño de experiencias.</p>
                     </div>
+                    
                     <div class="team-member">
-                        <img src="images/team5.jpg" alt="Jefe de Personal">
+                        <img src="Images/Nahuel.jpeg" alt="Nahuel Marcilli - Jefe de Personal">
                         <h3>Nahuel Marcilli</h3>
                         <p>Jefe de Personal</p>
+                        <p class="team-bio">Experto en recursos humanos y capacitación.</p>
                     </div>
                 </div>
             </article>
         </section>
     </main>
 
-    <footer>
+    <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Contacto</h4>
                 <address>
-                    <p>Av. Siempreviva 742, Springfield</p>
-                    <p>Tel: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
-                    <p>Email: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
+                    <p><i class="icon-address"></i> Av. Siempreviva 742, Springfield</p>
+                    <p><i class="icon-phone"></i> Tel: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
+                    <p><i class="icon-email"></i> Email: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
                 </address>
             </div>
             
             <div class="footer-section">
                 <h4>Horarios</h4>
-                <p>Lunes a Viernes: 9:00 - 18:00</p>
-                <p>Sábados: 10:00 - 14:00</p>
+                <p><i class="icon-time"></i> Lunes a Viernes: 9:00 - 18:00</p>
+                <p><i class="icon-time"></i> Sábados: 10:00 - 14:00</p>
             </div>
             
             <div class="footer-section">
@@ -110,21 +142,30 @@
                     <input type="email" placeholder="Tu email" required>
                     <button type="submit">Suscribirse</button>
                 </form>
+                <p class="newsletter-note">Recibe nuestras promociones y novedades.</p>
             </div>
             
             <div class="footer-section">
-                <h4>Redes Sociales</h4>
+                <h4>Síguenos</h4>
                 <div class="social-icons">
-                    <a href="https://facebook.com/idwsa" target="_blank"><img src="Images/facebook.png" alt="Facebook"></a>
-                    <a href="https://instagram.com/idwsa" target="_blank"><img src="Images/instagram.png" alt="Instagram"></a>
-                    <a href="https://wa.me/5491122334455" target="_blank"><img src="Images/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="https://www.facebook.com/profile.php?id=61553633756229" target="_blank" aria-label="Facebook"><i class="icon-facebook"></i></a>
+                    <a href="https://www.instagram.com/salondeventos_emporio/" target="_blank" aria-label="Instagram"><i class="icon-instagram"></i></a>
+                    <a href="https://wa.me/543794000537" target="_blank" aria-label="WhatsApp"><i class="icon-whatsapp"></i></a>
                 </div>
+                <p class="social-note">Conéctate con nosotros en redes sociales</p>
             </div>
         </div>
         
         <div class="copyright">
             <p>&copy; 2025 IDW S.A. - Todos los derechos reservados</p>
+            <p class="legal-links">
+                <a href="politica-privacidad.html">Política de Privacidad</a> | 
+                <a href="terminos-uso.html">Términos de Uso</a>
+            </p>
         </div>
     </footer>
 </body>
 </html>
+
+
+
