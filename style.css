@@ -5,22 +5,26 @@
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
 }
+header{
+    margin-bottom: 100px;
+}
 
 header nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 30px 0px 30px 0px;
+    background-color: #006dff;
+    height: 340px;
 }
 header nav ul{
     display: flex;
     list-style: none;
-    gap: 20px;;
+    gap: 40px;
 }
 
 header nav img{
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     border: 7px solid#311906;
     border-radius: 20px;
 }
@@ -37,10 +41,13 @@ header nav ul li{
 
 }
 header nav ul li a{
+    
     text-decoration: none;
     color:#f3eae8;   
-    font-weight: bold;
-    padding: 20px 45px;
+    font-weight: 900;
+}
+header nav ul li a:hover{
+    color:#f1d972;
 }
 header nav ul li a:hover{
     color:#f1d972;
@@ -50,7 +57,8 @@ main section.intro{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color:#006dff;
+    background-color:#887673;
+    padding: 20px;
     height: 360px;
     margin-bottom:30px;
 }
@@ -149,7 +157,7 @@ footer{
     justify-content: center;
     align-items: center;
     height: 360px;
-    margin-top: 50px;
+    margin: 70px 0px 0px 0px ;
 }
 footer .footer-content{
     display: grid;
