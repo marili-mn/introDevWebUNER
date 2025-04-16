@@ -165,7 +165,7 @@ main.container .contact-section h1{
     color:#f3eae8;
     margin-bottom: 20px;
 }
-main.container .contact-section p{
+main.container .contact-section .contact-subtitle{
     font-size: 30px;
     color:#f3eae8;
     margin-bottom: 20px;
@@ -190,6 +190,17 @@ main.container .contact-section a:hover{
 main.container .contact-section h2{
     font-size: 55px;
     font-weight: 900;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+main.container .contact-section .contact-card h3{
+    font-size: 30px;
+    font-weight: 900;
+    color:#311906;
+    margin-bottom: 20px;
+}
+main.container .contact-section .contact-card p{
+    font-size: 22px;
     color:#f3eae8;
     margin-bottom: 20px;
 }
@@ -359,7 +370,7 @@ main.container .about-section h2{
 }
 
 
-/*--Empieza footer--*/
+/*-- Termina Institucional --*//*--Empieza footer--*/ 
 footer{
     background-color: #f1d972;
     display: flex;
@@ -368,7 +379,7 @@ footer{
     align-items: center;
     height: 360px;
     margin: 70px 0px 0px 0px ;
-}
+} 
 footer .footer-content{
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
