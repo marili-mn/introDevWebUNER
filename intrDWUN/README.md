@@ -1,6 +1,7 @@
 # IDW S.A. - Reserva de Salones para Eventos
 
-![Logo IDW S.A.](intrDWUN/Images/logo_idw.jpg)
+![Logo IDW S.A.](introDevWebUNER/intrDWUN/Images
+/logo-idw.jpg)
 
 Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos sociales y corporativos, con especial atención a fiestas infantiles.
 
