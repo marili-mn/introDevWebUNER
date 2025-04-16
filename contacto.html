@@ -1,63 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacto - IDW S.A</title>
-  </head>
-  <body>
-    <header>
-      <h1>IDW S.A - Reserva de Salones de Evento</h1>
-      <ul>
-        <li><a href="institucional.html">Información Institucional</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacta con IDW S.A. para reservar salones de eventos o solicitar información" />
+  <title>Contacto - IDW S.A</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/logo-idw.jpg" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav class="main-nav">
+        <a href="index.html">
+            <img src="images/logo_idw.jpg" alt="Logo IDW S.A." class="logo">
+        </a>
+      <ul class="nav-menu">
         <li><a href="index.html">Inicio</a></li>
+        <li><a href="institucional.html">Institucional</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
-    </header>
+    </nav>
+  </header>
 
-    <main>
-      <h2>Contactanos!</h2>
-      <p>Te brindamos nuestros canales de comunicacion</p>
-      <p>
-        Correo electronico:
-        <a href="mailto:contactos@com.ar">contactos@com.ar</a>
-      </p>
-      <p>Telefono: <a href="tel:+54376576576">276576</a></p>
-    </main>
-    <footer>
-      <address>
+  <main class="container">
+    <section class="contact-section">
+      <h1>Contáctanos</h1>
+      <p class="contact-subtitle">Estamos aquí para ayudarte a planificar tu evento perfecto</p>
+
+      <div class="contact-container">
+        <!-- Información de contacto -->
+        <div class="contact-info">
+          <h2>Información de Contacto</h2>
+
+          <div class="contact-card">
+            <img src="images/ubicacion.png" alt="Ubicación" class="contact-img" />
+            <div>
+              <h3>Dirección</h3>
+              <p>Av. Siempreviva 742, Springfield</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <img src="images/telefono.png" alt="Teléfono" class="contact-img" />
+            <div>
+              <h3>Teléfonos</h3>
+              <p>Fijo: <a href="tel:+541145674500">+54 11 4567-4500</a></p>
+              <p>Móvil: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <img src="images/email.png" alt="Email" class="contact-img" />
+            <div>
+              <h3>Correo Electrónico</h3>
+              <p>General: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
+              <p>Reservas: <a href="mailto:reservas@idwsa.com">reservas@idwsa.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <img src="images/calendario.png" alt="Horario" class="contact-img" />
+            <div>
+              <h3>Horario de Atención</h3>
+              <p>Lunes a Viernes: 9:00 - 18:00</p>
+              <p>Sábados: 10:00 - 14:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="contact-form">
+          <h2>Formulario de Contacto</h2>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="nombre">Nombre completo:</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" />
+            </div>
+
+            <div class="form-group">
+              <label for="evento">Tipo de evento:</label>
+              <select id="evento" name="evento">
+                <option value="">Seleccione una opción</option>
+                <option value="boda">Boda</option>
+                <option value="cumpleanos">Cumpleaños</option>
+                <option value="conferencia">Conferencia</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
         <ul>
-          <li>IDW S.A - Reserva de Salones de Evento</li>
-          <li>Direccion:</li>
-          <li>Ciudad:</li>
-          <li>
-            Telefono: <a href="tel:+5511999999999">Llamar por teléfono</a>
-          </li>
-          <li>Email: <a href="mailto:nombre@ejemplo.com">Enviar correo</a></li>
-          <li>
-            <a
-              href="whatsapp://send?phone=5511999999999&text=Solicito%20presupuesto"
-              >Solicitar presupuesto por WhatsApp</a
-            >
-          </li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="institucional.html">Institucional</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
         </ul>
-      </address>
-
-      <div>
-        <form method="post">
-          <input
-            type="email"
-            value="email"
-            placeholder="Ingresa tu E-mail"
-            id="inputEmail"
-          />
-          <button type="submit">Subscribete :)</button>
+      </div>
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+            <a href="https://facebook.com/" target="_blank"><img src="Images/facebook.png" alt="Facebook"></a>
+            <a href="https://instagram.com/" target="_blank"><img src="Images/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/" target="_blank"><img src="Images/whatsapp.png" alt="WhatsApp"></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Boletín de noticias</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Introduce tu email" />
+          <button type="submit">Suscribirse</button>
         </form>
       </div>
-      <li></li>
-
-      <div><a href="Instagram"></a></div>
-
-      <p>Todos los derechos reservados 2025- redes sociales</p>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
 </html>

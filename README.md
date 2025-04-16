@@ -25,7 +25,7 @@ Sitio web oficial de IDW S.A., especialistas en alquiler de salones para eventos
 /idw-sa/
 ├── css/ # Archivos de estilos
 │  └── styles.css # Hoja de estilos principal
-├── imágenes/ # Imágenes del sitio
+├── images/ # Imágenes del sitio
 ├── index.html # Página principal
 ├── institucional.html # Información corporativa
 ├── contacto.html # Formulario de contacto
