@@ -55,7 +55,7 @@ main section.intro{
     margin-bottom:30px;
 }
 main section.intro h1{
-    font-size: 80px;
+    font-size: 85px;
     font-weight: 900;
     color:#f3eae8;
 }
@@ -70,6 +70,7 @@ main section.intro div{
     background-color: #887673;
     border-radius: 10px;
     padding: 20px 35px;
+    margin: 10px 0px;
     cursor: pointer;
 }
 main section .intro-button{
@@ -89,7 +90,7 @@ main section.catalogo{
     gap: 30px;
 }
 main section.catalogo h2{
-    font-size: 50px;
+    font-size: 55px;
     font-weight: 900;
     color:#311906;
 }
@@ -109,12 +110,8 @@ main section.catalogo div.salones-grid{
     margin-bottom: 15px; /
 }
 .salones-grid .salon-card h3{
-    font-size: 30px;
+    font-size: 38px;
     font-weight: 900;
-    color:#311906;
-}
-.salones-grid .salon-card p{
-    font-size: 20px;
     color:#311906;
 }
 .salones-grid .salon-card ul{
@@ -126,14 +123,16 @@ main section.catalogo div.salones-grid{
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-    font-size: 20px;
-    color:#5d141f;
+    padding: 2px 0;
+    font-size: 22px;
+    color:#f4a793;
     gap: 10px;
 }
 .salones-grid .salon-card button{
+    font-size: 26px;
     background-color: #311906;
     color:#f3eae8;
-    padding: 10px 20px;
+    padding: 30px 20px;
     margin-top: 10px;
     border-radius: 5px;
     border: none;
@@ -143,3 +142,4 @@ main section.catalogo div.salones-grid{
 .salones-grid .salon-card button:hover{
     background-color: #f1d972;
 }
+
