@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
-}
+}/* -reset --*/
 header{
     margin-bottom: 100px;
 }
@@ -51,7 +51,7 @@ header nav ul li a:hover{
 }
 header nav ul li a:hover{
     color:#f1d972;
-}
+}/*--Termina header--*/         /*--Empieza main index.html--*/  
 main section.intro{
     display: flex;
     flex-direction: column;
@@ -149,7 +149,135 @@ main section.catalogo div.salones-grid{
 }
 .salones-grid .salon-card button:hover{
     background-color: #f1d972;
+}/*--Termina main index.html--*/         /*--Empieza main contacto.html--*/
+main.container .contact-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #887673;
+    padding: 20px;
+    margin-bottom: 30px;
 }
+main.container .contact-section h1{
+    font-size: 85px;
+    font-weight: 900;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+main.container .contact-section p{
+    font-size: 30px;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+main.container .contact-section a{
+    font-size: 30px;
+    font-weight: 900;
+    color:#f3eae8;
+    text-decoration: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    
+}
+main.container .contact-section a:hover{
+    color:#f1d972;
+    text-decoration: none;
+    text-decoration-color:#f1d972;
+    text-decoration-style: solid;
+    text-decoration-color:#f1d972;
+    }
+
+main.container .contact-section h2{
+    font-size: 55px;
+    font-weight: 900;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+main.container .contact-section form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+main.container .contact-section form label{
+    font-size: 22px;
+    font-weight: 900;
+    color:#f3eae8;
+}
+main.container .contact-section form input,
+main.container .contact-section form textarea,
+main.container .contact-section form select{
+    padding: 10px;
+    border: 1px solid #311906;
+    border-radius: 5px;
+    font-size: 18px;
+    color:#311906;
+    width: 100%;
+    max-width: 600px;
+}
+main.container .contact-section form textarea{
+    height: 150px;
+    resize: none;
+}
+main.container .contact-section form button{
+    font-size: 24px;
+    background-color: #311906;
+    color:#f3eae8;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+}
+main.container .contact-section form button:hover{
+    background-color: #f1d972;
+}/*--Termina main contacto.html--*/     /*--Empieza Infor Institucional--*/
+main.container .about-section{
+    display: flex;    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #887673;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+main.container .about-section h1{
+    font-size: 75px;
+    font-weight: 900;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+main.container .about-section p{
+    font-size: 24px;
+    font-weight: 600;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+main.container .about-section h2{
+    font-size: 50px;
+    font-weight: 900;
+    color:#f3eae8;
+    margin-bottom: 20px;
+    color:#f3eae8;
+    margin-bottom: 20px;
+}
+.container .about-section ul li strong{
+    font-size: 24px;
+    font-weight: 900;
+    color:#f3eae8;
+}   
+.container .about-section ul li{
+    margin-bottom: 5px;
+    padding: 2px 0;
+    font-size: 22px;
+    color:#f4a793;
+    gap: 10px;
+    margin-bottom: 20px;
+
+}
+
+/*--Empieza footer--*/
 footer{
     background-color: #f1d972;
     display: flex;
