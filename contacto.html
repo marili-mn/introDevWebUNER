@@ -1,143 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta con IDW S.A. para reservar salones de eventos o solicitar información">
-    <title>Contacto - IDW S.A</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="images/logo_idw.jpg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacta con IDW S.A. para reservar salones de eventos o solicitar información" />
+  <title>Contacto - IDW S.A</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/logo-idw.jpg" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <img src="images/logo_idw.jpg" alt="Logo IDW S.A." class="logo">
-            <ul class="nav-menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="institucional.html">Institucional</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-            <!--div class="hamburger" aria-label="Menú">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </div>
-        </nav-->
-    </header>
+  <header>
+    <nav class="main-nav">
+      <img src="images/logo_idw.jpg" alt="Logo IDW S.A." class="logo" />
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="institucional.html">Institucional</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="container">
-        <section class="contact-section">
-            <h1><i class="fas fa-address-book"></i> Contáctanos</h1>
-            <p class="contact-subtitle">Estamos aquí para ayudarte a planificar tu evento perfecto</p>
+  <main class="container">
+    <section class="contact-section">
+      <h1>Contáctanos</h1>
+      <p class="contact-subtitle">Estamos aquí para ayudarte a planificar tu evento perfecto</p>
 
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Información de Contacto</h2>
-                    <div class="contact-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
-                        <p>Av. Siempreviva 742, Springfield</p>
-                    </div>
-                    <div class="contact-card">
-                        <h3><i class="fas fa-phone"></i> Teléfonos</h3>
-                        <p>Fijo: <a href="tel:+541145678900">+54 11 4567-4500</a></p>
-                        <p>Móvil: <a href="tel:+5491122334455">+54 9 11 2233-7455</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <h3><i class="fas fa-envelope"></i> Correo Electrónico</h3>
-                        <p>General: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
-                        <p>Reservas: <a href="mailto:reservas@idwsa.com">reservas@idwsa.com</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <h3><i class="fas fa-clock"></i> Horario de Atención</h3>
-                        <p>Lunes a Viernes: 9:00 - 18:00</p>
-                        <p>Sábados: 10:00 - 14:00</p>
-                    </div>
-                </div>
+      <div class="contact-container">
+        <!-- Información de contacto -->
+        <div class="contact-info">
+          <h2>Información de Contacto</h2>
 
-                <div class="contact-form">
-                    <h2>Formulario de Contacto</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo:</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo electrónico:</label>
-                            <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono:</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
-                        </div>
-                        <div class="form-group">
-                            <label for="evento">Tipo de evento:</label>
-                            <select id="evento" name="evento">
-                                <option value="">Seleccione una opción</option>
-                                <option value="boda">Boda</option>
-                                <option value="cumpleanos">Cumpleaños</option>
-                                <option value="corporativo">Evento Corporativo</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="fecha">Fecha aproximada:</label>
-                            <input type="date" id="fecha" name="fecha">
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje:</label>
-                            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
-                    </form>
-                </div>
+          <div class="contact-card">
+            <img src="images/ubicacion.png" alt="Ubicación" class="contact-img" />
+            <div>
+              <h3>Dirección</h3>
+              <p>Av. Siempreviva 742, Springfield</p>
             </div>
+          </div>
 
-            <div class="map-container">
-                <h2>Ubicación de Nuestros Salones</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="contact-card">
+            <img src="images/telefono.png" alt="Teléfono" class="contact-img" />
+            <div>
+              <h3>Teléfonos</h3>
+              <p>Fijo: <a href="tel:+541145674500">+54 11 4567-4500</a></p>
+              <p>Móvil: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
             </div>
-        </section>
-    </main>
+          </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4><i class="fas fa-address-book"></i> Contacto</h4>
-                <address>
-                    <p>Av. Siempreviva 742, Springfield</p>
-                    <p>Tel: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
-                    <p>Email: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
-                </address>
+          <div class="contact-card">
+            <img src="images/email.png" alt="Email" class="contact-img" />
+            <div>
+              <h3>Correo Electrónico</h3>
+              <p>General: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
+              <p>Reservas: <a href="mailto:reservas@idwsa.com">reservas@idwsa.com</a></p>
             </div>
-            <div class="footer-section">
-                <h4><i class="fas fa-clock"></i> Horarios</h4>
-                <p>Lunes a Viernes: 9:00 - 18:00</p>
-                <p>Sábados: 10:00 - 14:00</p>
+          </div>
+
+          <div class="contact-card">
+            <img src="images/calendario.png" alt="Horario" class="contact-img" />
+            <div>
+              <h3>Horario de Atención</h3>
+              <p>Lunes a Viernes: 9:00 - 18:00</p>
+              <p>Sábados: 10:00 - 14:00</p>
             </div>
-            <div class="footer-section">
-                <h4><i class="fas fa-envelope"></i> Newsletter</h4>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit">Suscribirse</button>
-                </form>
-            </div>
-            <div class="footer-section">
-                <h4>Redes Sociales</h4>
-                <div class="social-icons">
-                    <a href="https://facebook.com/idwsa" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/idwsa" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5491122334455" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 IDW S.A. - Todos los derechos reservados</p>
+
+        <!-- Formulario -->
+        <div class="contact-form">
+          <h2>Formulario de Contacto</h2>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="nombre">Nombre completo:</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" />
+            </div>
+
+            <div class="form-group">
+              <label for="evento">Tipo de evento:</label>
+              <select id="evento" name="evento">
+                <option value="">Seleccione una opción</option>
+                <option value="boda">Boda</option>
+                <option value="cumpleanos">Cumpleaños</option>
+                <option value="conferencia">Conferencia</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar mensaje</button>
+          </form>
         </div>
-    </footer>
-    <script src="js/script.js" defer></script>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="institucional.html">Institucional</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Boletín de noticias</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Introduce tu email" />
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
