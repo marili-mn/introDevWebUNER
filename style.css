@@ -2,17 +2,20 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
 }
 
 header nav{
-    margin: 20px 20px;
+    margin: 30px 0px 30px 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 header nav ul{
     display: flex;
     list-style: none;
+    gap: 20px;;
 }
 
 header nav img{
@@ -22,10 +25,7 @@ header nav img{
     border-radius: 20px;
 }
 header nav ul li{
-    display: flex;
-    align-items: center;;
     height: 120px;
-    margin: 0 50px;
     padding: 20px 45px;
     background-color:#5d141f;
     font-size: 30px;
