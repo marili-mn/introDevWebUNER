@@ -1,122 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IDW S.A.</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserva de salones para eventos y fiestas infantiles - IDW S.A.">
+    <title>IDW S.A. - Salones para Eventos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo_idw.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
     <header>
-      <h1>IDW S.A - Reserva de Salones de Evento</h1>
-      <ul>
-        <li><img src="" alt="logo" /></li>
-
-        <li><a href="institucional.html">Información Institucional</a></li>
-        <li><a href="contacto.html">Información Contactos</a></li>
-      </ul>
+        <nav class="main-nav">
+            <img src="images/logo_idw.jpg" alt="Logo IDW S.A." class="logo">
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="institucional.html">Institucional</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="hamburger" aria-label="Menú">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </div>
+        </nav>
     </header>
+
     <main>
-      <section>
-        <h3>Bienvenido a nuestro catalogo</h3>
-        <p>Consunta nuestras ofertas, arma tus presupuestos</p>
-      </section>
+        <section class="intro">
+            <h1>Bienvenido a IDW S.A.</h1>
+            <p class="subtitle">Los mejores salones para tus eventos especiales</p>
+            <div><a class="intro-button" href="contacto.html">Reserva ahora</a></div>
+        </section>
 
-      <section>
-        <ol>
-          <li>
-            <strong>Salon n1</strong>
-            <br />
-            <img
-              src="/imagenes/salon_2.jpeg"
-              alt="Salon de evento"
-              width="300"
-            />
-
-            <figcaption>
-              Ubicacion: lore Capacidad: lore Precio: lore Servicios: lore
-            </figcaption>
-            <p></p>
-          </li>
-          <li>
-            <strong>Salon n2</strong>
-            <br />
-            <img
-              src="/imagenes/salon_2.jpeg"
-              alt="Salon de evento"
-              width="300"
-            />
-
-            <figcaption>
-              Ubicacion: lore Capacidad: lore Precio: lore Servicios: lore
-            </figcaption>
-            <p></p>
-          </li>
-          <li>
-            <strong>Salon n3</strong>
-            <br />
-            <img
-              src="/imagenes/salon_2.jpeg"
-              alt="Salon de evento"
-              width="300"
-            />
-
-            <figcaption>
-              Ubicacion: lore Capacidad: lore Precio: lore Servicios: lore
-            </figcaption>
-            <p></p>
-          </li>
-          <li>
-            <strong>Salon n4</strong>
-            <br />
-            <img
-              src="/imagenes/salon_2.jpeg"
-              alt="Salon de evento"
-              width="300"
-            />
-
-            <figcaption>
-              Ubicacion: lore Capacidad: lore Precio: lore Servicios: lore
-            </figcaption>
-            <p></p>
-          </li>
-        </ol>
-      </section>
+        <section class="catalogo">
+            <h2>Nuestros Salones Disponibles</h2>
+            <div class="salones-grid">
+                <article class="salon-card">
+                    <img src="images/salon_1.jpg" alt="Salón Diamante" class="salon-img">
+                    <h3>Salón Diamante</h3>
+                    <ul class="salon-info">
+                        <li><strong>Ubicación:</strong> Centro de la ciudad</li>
+                        <li><strong>Capacidad:</strong> 150 personas</li>
+                        <li><strong>Precio:</strong> $2.550.000 por evento</li>
+                        <li><strong>Servicios incluidos:</strong> Sonido básico, iluminación, mesas y sillas</li>
+                    </ul>
+                    <button class="info-button">Más información</button>
+                </article>
+                <article class="salon-card">
+                    <img src="images/salon_2.jpeg" alt="Salón Esmeralda" class="salon-img">
+                    <h3>Salón Esmeralda</h3>
+                    <ul class="salon-info">
+                        <li><strong>Ubicación:</strong> Zona norte</li>
+                        <li><strong>Capacidad:</strong> 80 personas</li>
+                        <li><strong>Precio:</strong> $1.935.000 por evento</li>
+                        <li><strong>Servicios incluidos:</strong> Cocina equipada, servicio de limpieza</li>
+                    </ul>
+                    <button class="info-button">Más información</button>
+                </article>
+                <article class="salon-card">
+                    <img src="images/salon_3.jpg" alt="Salón Rubí" class="salon-img">
+                    <h3>Salón Rubí</h3>
+                    <ul class="salon-info">
+                        <li><strong>Ubicación:</strong> Zona sur</li>
+                        <li><strong>Capacidad:</strong> 200 personas</li>
+                        <li><strong>Precio:</strong> $3.575.000 por evento</li>
+                        <li><strong>Servicios incluidos:</strong> Sonido profesional, pantalla gigante, catering</li>
+                    </ul>
+                    <button class="info-button">Más información</button>
+                </article>
+                <article class="salon-card">
+                    <img src="images/salon_4.jpg" alt="Salón Rubí" class="salon-img">
+                    <h3>Salón Rubí</h3>
+                    <ul class="salon-info">
+                        <li><strong>Ubicación:</strong> Zona sur</li>
+                        <li><strong>Capacidad:</strong> 200 personas</li>
+                        <li><strong>Precio:</strong> $3.575.000 por evento</li>
+                        <li><strong>Servicios incluidos:</strong> Sonido profesional, pantalla gigante, catering</li>
+                    </ul>
+                    <button class="info-button">Más información</button>
+                </article>
+                <article class="salon-card">
+                    <img src="images/salon_5.jpeg" alt="Salón Rubí" class="salon-img">
+                    <h3>Salón Rubí</h3>
+                    <ul class="salon-info">
+                        <li><strong>Ubicación:</strong> Zona sur</li>
+                        <li><strong>Capacidad:</strong> 200 personas</li>
+                        <li><strong>Precio:</strong> $3.575.000 por evento</li>
+                        <li><strong>Servicios incluidos:</strong> Sonido profesional, pantalla gigante, catering</li>
+                    </ul>
+                    <button class="info-button">Más información</button>
+                </article>
+            </div>
+        </section>
     </main>
+
     <footer>
-      <address>
-        <ul>
-          <li>IDW S.A - Reserva de Salones de Evento</li>
-          <li>Direccion:</li>
-          <li>Ciudad:</li>
-          <li>
-            Telefono: <a href="tel:+5511999999999">Llamar por teléfono</a>
-          </li>
-          <li>Email: <a href="mailto:nombre@ejemplo.com">Enviar correo</a></li>
-          <li>
-            <a
-              href="whatsapp://send?phone=5511999999999&text=Solicito%20presupuesto"
-              >Solicitar presupuesto por WhatsApp</a
-            >
-          </li>
-        </ul>
-      </address>
-
-      <div>
-        <form method="post">
-          <input
-            type="email"
-            value="email"
-            placeholder="Ingresa tu E-mail"
-            id="inputEmail"
-          />
-          <button type="submit">Subscribete :)</button>
-        </form>
-      </div>
-      <li></li>
-
-      <div><a href="Instagram"></a></div>
-
-      <p>Todos los derechos reservados 2025- redes sociales</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-address-book"></i> Contacto</h4>
+                <address>
+                    <p>Av. Siempreviva 742, Springfield</p>
+                    <p>Tel: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
+                    <p>Email: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
+                </address>
+            </div>
+            <div class="footer-section">
+                <h4><i class="fas fa-clock"></i> Horarios</h4>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 10:00 - 14:00</p>
+            </div>
+            <div class="footer-section">
+                <h4><i class="fas fa-envelope"></i> Newsletter</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com/idwsa" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/idwsa" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5491122334455" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 IDW S.A. - Todos los derechos reservados</p>
+        </div>
     </footer>
-  </body>
+    <script src="js/script.js" defer></script>
+</body>
 </html>
