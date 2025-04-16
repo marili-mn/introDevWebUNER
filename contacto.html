@@ -25,43 +25,37 @@
 
     <main class="container">
         <section class="contact-section">
-            <h1>Contáctanos</h1>
+            <h1><i class="fas fa-address-book"></i> Contáctanos</h1>
             <p class="contact-subtitle">Estamos aquí para ayudarte a planificar tu evento perfecto</p>
             
             <div class="contact-container">
                 <div class="contact-info">
                     <h2>Información de Contacto</h2>
-                    
                     <div class="contact-card">
-                        <img src="Images/ubicacion.png" alt="Ubicación">
                         <div>
-                            <h3>Dirección</h3>
+                            <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
                             <p>Av. Siempreviva 742, Springfield</p>
                         </div>
                     </div>
-                    
                     <div class="contact-card">
-                        <img src="Images/telefono.png" alt="Teléfono">
                         <div>
-                            <h3>Teléfonos</h3>
+                            <h3><i class="fas fa-phone"></i> Teléfonos</h3>
                             <p>Fijo: <a href="tel:+541145678900">+54 11 4567-4500</a></p>
                             <p>Móvil: <a href="tel:+5491122334455">+54 9 11 2233-7455</a></p>
                         </div>
                     </div>
                     
                     <div class="contact-card">
-                        <img src="Images/email.png" alt="Email">
                         <div>
-                            <h3>Correo Electrónico</h3>
+                            <h3><i class="fas fa-envelope"></i> Correo Electrónico</h3>
                             <p>General: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
                             <p>Reservas: <a href="mailto:reservas@idwsa.com">reservas@idwsa.com</a></p>
                         </div>
                     </div>
                     
                     <div class="contact-card">
-                        <img src="Images/calendario.png" alt="Horario">
                         <div>
-                            <h3>Horario de Atención</h3>
+                            <h3><i class="fas fa-clock"></i> Horario de Atención</h3>
                             <p>Lunes a Viernes: 9:00 - 18:00</p>
                             <p>Sábados: 10:00 - 14:00</p>
                         </div>
@@ -73,17 +67,17 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="nombre">Nombre completo:</label>
-                            <input type="text" id="nombre" name="nombre" required>
+                            <input type="text" id="nombre" placeholder="Nombre y Apellido" name="nombre" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Correo electrónico:</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" placeholder="Tu correo electrónico"" name="email" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="telefono">Teléfono:</label>
-                            <input type="tel" id="telefono" name="telefono">
+                            <input type="tel" id="telefono" placeholder="Tu teléfono"" name="telefono">
                         </div>
                         
                         <div class="form-group">
@@ -104,7 +98,7 @@
                         
                         <div class="form-group">
                             <label for="mensaje">Mensaje:</label>
-                            <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+                            <textarea id="mensaje" placeholder="Escribe tu mensaje aquí"" name="mensaje" rows="5"></textarea>
                         </div>
                         
                         <button type="submit" class="submit-btn">Enviar Mensaje</button>
