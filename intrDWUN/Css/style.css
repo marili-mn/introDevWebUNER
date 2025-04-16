@@ -1,3 +1,4 @@
+
 /* Estilos generales */
 * {
     margin: 0;
@@ -76,7 +77,7 @@ header {
     background: linear-gradient(
         rgba(0,0,0,0.5), 
         rgba(0,0,0,0.5)), 
-        url('../images/hero-bg.jpg');
+        url('../Images/hero1.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -325,3 +326,129 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+/* Estilos específicos para la página institucional */
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.mv-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.mv-card:hover {
+    transform: translateY(-5px);
+}
+
+.mv-card h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1c40f;
+    padding-bottom: 10px;
+}
+
+.mv-card ul {
+    padding-left: 20px;
+}
+
+.mv-card li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.mv-card li::before {
+    content: "•";
+    color: #f1c40f;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.history {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.history-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.team-member {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #f1c40f;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    color: #2c3e50;
+    margin: 10px 0 5px;
+}
+
+.team-member p {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
