@@ -218,8 +218,8 @@ footer {
 
 .social-icons {
   display: flex;
-  gap: 15px;
-  font-size: 1.5rem;
+  gap: 10px;
+  font-size: 0.5rem;
 }
 
 .team-grid {
@@ -367,7 +367,7 @@ footer {
 .submit-btn:hover {
   background-color: #f1d972;
   color: #311906;
-} 
+}   
 
 
 /* ------------------------ */
