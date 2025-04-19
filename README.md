@@ -78,15 +78,3 @@ Este proyecto está bajo la licencia MIT. Ver el archivo LICENSE para más detal
 
 © 2025 IDW S.A. - Todos los derechos reservados
 
-
-### Este README.md incluye:
-
-1. **Presentación clara** del proyecto y sus características principales
-2. **Lista completa** de integrantes del equipo
-3. **Estructura de archivos** organizada
-4. **Tecnologías utilizadas** claramente especificadas
-5. **Instrucciones** para contribuir al proyecto
-6. **Checklist** de requisitos cumplidos para el TP1
-7. **Roadmap** con las mejoras planeadas para el TP2
-8. **Información de licencia**
-
