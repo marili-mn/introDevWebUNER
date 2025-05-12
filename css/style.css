@@ -367,19 +367,16 @@ body {
   color: #FFFFFF;
   padding: 40px 0;
 }
-
-/* Social media icons with hover effect */
-.social-icons a {
-  color: #FFFFFF;
-  font-size: 1.5rem;
-  margin: 0 10px;
-  transition: color 0.3s;
+/*Adress links styling*/
+address a:link ,address a:visited, address a:hover, address a:active{
+  text-decoration: none;
+  color: #FFFFFF
 }
-
-/* Change icon color on hover */
-.social-icons a:hover {
+address a:hover{
+  font-weight: bold;
   color: #D62D0F;
 }
+
 
 /* Newsletter form input styling */
 .newsletter-form .form-control {
@@ -403,7 +400,23 @@ body {
 /* Darker shade on button hover */
 .newsletter-form button:hover {
   background-color: #B0240C;
+  font-weight: bold;
 }
+
+/* Social media icons with hover effect */
+.social-icons a {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+/* Change icon color on hover */
+.social-icons a:hover i{
+  color: #D62D0F;
+  zoom: 1.05;
+}
+
 
 /* Copyright section with light background and centered text */
 .copyright {
@@ -411,6 +424,10 @@ body {
   color: #5C5E62;
   text-align: center;
   padding: 10px 0;
+}
+
+.copyright:hover ,address.a:focus{
+  font-weight: bold;
 }
 
 /* ==========================================================================
@@ -486,4 +503,11 @@ body {
   .intro p {
     font-size: 0.9rem;
   }
+  .footer-section h4, .footer-section p, .social-icons{
+    text-align: center;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
