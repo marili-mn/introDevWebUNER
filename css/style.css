@@ -377,7 +377,6 @@ address a:hover{
   color: #D62D0F;
 }
 
-
 /* Newsletter form input styling */
 .newsletter-form .form-control {
   border: 1px solid #5C5E62;
@@ -417,7 +416,6 @@ address a:hover{
   zoom: 1.05;
 }
 
-
 /* Copyright section with light background and centered text */
 .copyright {
   background-color: #F5F5F5;
@@ -439,6 +437,7 @@ address a:hover{
     opacity: 0;
     transform: translateY(140px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -503,11 +502,17 @@ address a:hover{
   .intro p {
     font-size: 0.9rem;
   }
-  .footer-section h4, .footer-section p, .social-icons{
+
+  .footer-section h4, .footer-section p, .social-icons, .newsletter-form{
     text-align: center;
     display: flex ;
     justify-content: center;
     align-items: center;
+  }
+  .newsletter-form{
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 7px;
   }
 
 }
