@@ -1,0 +1,489 @@
+/* ==========================================================================
+   Font Imports
+   ========================================================================== */
+/* Importing Google Fonts (Noto Sans) for consistent typography across the site */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+
+/* ==========================================================================
+   Reset and Global Styles
+   ========================================================================== */
+/* Reset default margins and paddings, and enforce border-box for consistent sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base styles for the body, including font, background, and text color */
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #FFFFFF;
+  color: #5C5E62;
+}
+
+/* ==========================================================================
+   Header/Navbar Styles
+   ========================================================================== */
+/* Fixed navbar at the top with a shadow for depth */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #FFFFFF;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styling with responsive height */
+.logo {
+  height: 50px;
+}
+
+/* Navigation links with hover underline effect */
+.navbar-nav .nav-link {
+  color: #171A20;
+  font-weight: 500;
+  position: relative;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Underline effect for nav links on hover */
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #D62D0F;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Scale underline to full width on hover */
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Change link color on hover */
+.navbar-nav .nav-link:hover {
+  color: #D62D0F;
+}
+
+/* ==========================================================================
+   Intro Section Styles (index.html)
+   ========================================================================== */
+/* Full-screen intro section with centered content and video background */
+.intro {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* Video background styling, covering the entire section */
+.intro video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6); /* Dim video for text readability */
+}
+
+/* Main heading with animation for smooth entrance */
+.intro h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Subtitle paragraph with delayed animation */
+.intro p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.5s ease-in-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Call-to-action button with hover effect and animation */
+.intro-button {
+  background-color: #D62D0F;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 1px solid #D62D0F;
+  transition: background-color 0.3s, border-color 0.3s;
+  animation: fadeInUp 0.5s ease-in-out 0.4s;
+  animation-fill-mode: both;
+}
+
+/* Darker shade on button hover for visual feedback */
+.intro-button:hover {
+  background-color: #B0240C;
+  border-color: #B0240C;
+}
+
+/* ==========================================================================
+   Catalogo Section Styles (index.html)
+   ========================================================================== */
+/* Section container for salon cards with vertical padding */
+.catalogo {
+  padding: 60px 0;
+}
+
+/* Salon card with hover lift effect and entrance animation */
+.salon-card {
+  transition: transform 0.3s ease-in-out;
+  background-color: #FFFFFF;
+  border: 1px solid #F5F5F5;
+  border-radius: 5px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Lift card on hover for interactive feel */
+.salon-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Salon image styling with rounded top corners */
+.salon-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Full-width button for more information with hover effect */
+.info-button {
+  width: 100%;
+  background-color: #D62D0F;
+  border: none;
+  padding: 10px;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Darker shade on button hover */
+.info-button:hover {
+  background-color: #B0240C;
+}
+
+/* ==========================================================================
+   Contact Section Styles (contacto.html)
+   ========================================================================== */
+/* Contact section with vertical padding */
+.contact-section {
+  padding: 60px 0;
+}
+
+/* Subtitle with entrance animation */
+.contact-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Flex container for contact info and form with responsive wrapping */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Equal-width columns for info and form, with minimum width for smaller screens */
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Contact info card with subtle border and animation */
+.contact-card {
+  background-color: #FFFFFF;
+  border: 1px solid #F5F5F5;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Card heading styling */
+.contact-card h3 {
+  color: #171A20;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+/* Card text and links with consistent color */
+.contact-card p,
+.contact-card a {
+  color: #5C5E62;
+  margin: 5px 0;
+}
+
+/* Link hover effect */
+.contact-card a:hover {
+  color: #D62D0F;
+}
+
+/* Form input styling with focus state */
+.contact-form .form-control {
+  border: 1px solid #5C5E62;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+/* Highlight input on focus with subtle shadow */
+.contact-form .form-control:focus {
+  border-color: #D62D0F;
+  box-shadow: 0 0 5px rgba(214, 45, 15, 0.3);
+}
+
+/* Submit button with full width and hover effect */
+.submit-btn {
+  width: 100%;
+  background-color: #D62D0F;
+  color: #FFFFFF;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Darker shade on button hover */
+.submit-btn:hover {
+  background-color: #B0240C;
+}
+
+/* Map container with top margin */
+.map-container {
+  margin-top: 40px;
+}
+
+/* Rounded corners for map iframe */
+.map-container iframe {
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   About Section Styles (institucional.html)
+   ========================================================================== */
+/* About section with vertical padding */
+.about-section {
+  padding: 60px 0;
+}
+
+/* Mission/Vision/Values card with subtle border and animation */
+.mv-card {
+  background-color: #FFFFFF;
+  border: 1px solid #F5F5F5;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Card heading styling */
+.mv-card h2 {
+  color: #171A20;
+  font-size: 1.5rem;
+}
+
+/* Card text and lists with consistent color */
+.mv-card p,
+.mv-card ul {
+  color: #5C5E62;
+}
+
+/* List item spacing */
+.mv-card ul li {
+  margin-bottom: 10px;
+}
+
+/* History image with rounded corners */
+.history-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Team member card with centered content and animation */
+.team-member {
+  text-align: center;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Circular team member image */
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Team member name styling */
+.team-member h3 {
+  color: #171A20;
+  font-size: 1.25rem;
+}
+
+/* Team member role styling */
+.team-member p {
+  color: #5C5E62;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Footer Styles (All Pages)
+   ========================================================================== */
+/* Footer container with dark background and padding */
+.footer-content {
+  background-color: #171A20;
+  color: #FFFFFF;
+  padding: 40px 0;
+}
+
+/* Social media icons with hover effect */
+.social-icons a {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+/* Change icon color on hover */
+.social-icons a:hover {
+  color: #D62D0F;
+}
+
+/* Newsletter form input styling */
+.newsletter-form .form-control {
+  border: 1px solid #5C5E62;
+  background-color: #FFFFFF;
+  color: #171A20;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Newsletter submit button with hover effect */
+.newsletter-form button {
+  background-color: #D62D0F;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Darker shade on button hover */
+.newsletter-form button:hover {
+  background-color: #B0240C;
+}
+
+/* Copyright section with light background and centered text */
+.copyright {
+  background-color: #F5F5F5;
+  color: #5C5E62;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* ==========================================================================
+   Animation Keyframes
+   ========================================================================== */
+/* Fade-in and slide-up animation for elements */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(140px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Media Queries for Responsive Design
+   ========================================================================== */
+/* Adjustments for medium screens (tablets and below) */
+@media (max-width: 992px) {
+  /* Add padding to navbar links for better touch targets */
+  .navbar-nav {
+    padding: 15px;
+  }
+
+  /* Reduce heading size in intro section */
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  /* Reduce subtitle size in intro section */
+  .intro p {
+    font-size: 1rem;
+  }
+
+  /* Stack contact info and form vertically */
+  .contact-container {
+    flex-direction: column;
+  }
+
+  /* Full-width columns for contact info and form */
+  .contact-info,
+  .contact-form {
+    min-width: 100%;
+  }
+}
+
+/* Adjustments for small screens (phones) */
+@media (max-width: 576px) {
+  /* Reduce navbar padding for compact layout */
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  /* Smaller logo for mobile */
+  .logo {
+    height: 40px;
+  }
+
+  /* Reduce intro section padding */
+  .intro {
+    padding: 60px 20px;
+  }
+
+  /* Smaller heading for mobile */
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Smaller subtitle for mobile */
+  .intro p {
+    font-size: 0.9rem;
+  }
+}

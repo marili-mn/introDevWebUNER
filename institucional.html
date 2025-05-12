@@ -5,86 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conoce más sobre IDW S.A. - Salones para eventos y fiestas infantiles">
     <title>Información Institucional - IDW S.A</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <img src="imagenes/logoIWD.png" alt="Logo IDW S.A." width="50">
-            <ul class="nav-menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="institucional.html">Información Institucional</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo_idw.jpg" alt="Logo IDW S.A." class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="institucional.html">Información Institucional</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main class="container">
         <section class="about-section">
-            <h1>Acerca de IDW S.A.</h1>
+            <h1 class="display-4 fw-bold">Acerca de IDW S.A.</h1>
             
             <article class="mission-vision">
-                <div class="mv-card">
-                    <h2>Misión</h2>
-                    <p>Ofrecer espacios excepcionales y versátiles, combinados con un servicio de planificación y ejecución impecable y personalizado, para que cada evento – ya sea social, corporativo o una celebración íntima – se convierta en una experiencia única, fluida y memorable para nuestros clientes y sus invitados, cuidando cada detalle con pasión y profesionalismo.</p>
-                </div>
-                
-                <div class="mv-card">
-                    <h2>Visión</h2>
-                    <p>Ser el espacio de eventos líder y referente en la región, reconocido por transformar celebraciones en momentos inolvidables y excepcionales, marcando el estándar de elegancia, innovación y servicio personalizado que supere consistentemente las expectativas de nuestros clientes.</p>
-                </div>
-                
-                <div class="mv-card">
-                    <h2>Valores</h2>
-                    <ul>
-                        <li><strong>Excelencia</strong>: Buscamos la máxima calidad en cada detalle, desde nuestras instalaciones hasta el servicio ofrecido, para garantizar eventos impecables y superar las expectativas.</li>
-                        <li><strong>Compromiso con el Cliente</strong>: Ponemos las necesidades, deseos y sueños de nuestros clientes en el centro de todo lo que hacemos, ofreciendo escucha activa, flexibilidad y soluciones a medida.</li>
-                        <li><strong>Pasión por los Detalles</strong>: Creemos que los pequeños detalles marcan la gran diferencia. Nos dedicamos con entusiasmo a cuidar cada aspecto para crear atmósferas mágicas y experiencias memorables.</li>
-                        <li><strong>Integridad y Profesionalismo</strong>: Actuamos con honestidad, transparencia, responsabilidad y ética en todas nuestras interacciones con clientes, proveedores y colaboradores.</li>
-                        <li><strong>Trabajo en Equipo</strong>: Fomentamos un ambiente de colaboración, respeto y apoyo mutuo, donde cada miembro del equipo es valorado y contribuye al éxito colectivo.</li>
-                        <li><strong>Innovación y Creatividad</strong>: Estamos en constante búsqueda de nuevas ideas, tendencias y soluciones para ofrecer propuestas frescas, originales y adaptadas a cada ocasión.</li>
-                    </ul>
+                <div class="row">
+                    <div class="col-md-4 mv-card">
+                        <h2 class="h3">Misión</h2>
+                        <p>Ofrecer espacios excepcionales y versátiles, combinados con un servicio de planificación y ejecución impecable y personalizado, para que cada evento – ya sea social, corporativo o una celebración íntima – se convierta en una experiencia única, fluida y memorable para nuestros clientes y sus invitados, cuidando cada detalle con pasión y profesionalismo.</p>
+                    </div>
+                    <div class="col-md-4 mv-card">
+                        <h2 class="h3">Visión</h2>
+                        <p>Ser el espacio de eventos líder y referente en la región, reconocido por transformar celebraciones en momentos inolvidables y excepcionales, marcando el estándar de elegancia, innovación y servicio personalizado que supere consistentemente las expectativas de nuestros clientes.</p>
+                    </div>
+                    <div class="col-md-4 mv-card">
+                        <h2 class="h3">Valores</h2>
+                        <ul class="list-unstyled">
+                            <li><strong>Excelencia</strong>: Buscamos la máxima calidad en cada detalle, desde nuestras instalaciones hasta el servicio ofrecido, para garantizar eventos impecables y superar las expectativas.</li>
+                            <li><strong>Compromiso con el Cliente</strong>: Ponemos las necesidades, deseos y sueños de nuestros clientes en el centro de todo lo que hacemos, ofreciendo escucha activa, flexibilidad y soluciones a medida.</li>
+                            <li><strong>Pasión por los Detalles</strong>: Creemos que los pequeños detalles marcan la gran diferencia. Nos dedicamos con entusiasmo a cuidar cada aspecto para crear atmósferas mágicas y experiencias memorables.</li>
+                            <li><strong>Integridad y Profesionalismo</strong>: Actuamos con honestidad, transparencia, responsabilidad y ética en todas nuestras interacciones con clientes, proveedores y colaboradores.</li>
+                            <li><strong>Trabajo en Equipo</strong>: Fomentamos un ambiente de colaboración, respeto y apoyo mutuo, donde cada miembro del equipo es valorado y contribuye al éxito colectivo.</li>
+                            <li><strong>Innovación y Creatividad</strong>: Estamos en constante búsqueda de nuevas ideas, tendencias y soluciones para ofrecer propuestas frescas, originales y adaptadas a cada ocasión.</li>
+                        </ul>
+                    </div>
                 </div>
             </article>
             
-            <article class="history">
-                <h2>Nuestra Historia</h2>
+            <article class="history mt-5">
+                <h2 class="h3">Nuestra Historia</h2>
                 <p>Fundada en 2010, IDW S.A. comenzó como un pequeño salón para fiestas infantiles. Con el tiempo, gracias a la confianza de nuestros clientes y nuestro compromiso con la calidad, hemos crecido hasta convertirnos en una de las principales empresas del sector, con tres salones en diferentes ubicaciones de la ciudad.</p>
                 <h3>Nuestro Primer salón</h3>
-                <img src="imagenes/salon1/ado3.jpg" alt="Nuestro primer salón en 2010" class="history-img">
+                <img src="images/salon1/ado3.jpg" alt="Nuestro primer salón en 2010" class="history-img">
             </article>
             
-            <article class="team">
-                <h2>Nuestro Equipo</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="imagenes/stuff/vero.jpeg" alt="Directora General">
+            <article class="team mt-5">
+                <h2 class="h3">Nuestro Equipo</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 team-grid">
+                    <div class="col team-member">
+                        <img src="images/vero.jpeg" alt="Directora General">
                         <h3>Verónica Peluffo</h3>
                         <p>Directora General</p>
                     </div>
-                    <div class="team-member">
-                        <img src="imagenes/stuff/ema.jpeg" alt="Gerente de Operaciones">
-                        <h3>Emanuel Conte</h3>
-                        <p>Gerente de Operaciones</p>
+                    <div class="col team-member">
+                        <img src="images/nahuel_ghibli.jpg" alt="Jefe de Personal">
+                        <h3>Nahuel Marcilli</h3>
+                        <p>Gerente de Personal</p>
                     </div>
-                    <div class="team-member">
-                        <img src="imagenes/stuff/andre.jpeg" alt="Jefa de Administración">
+                    <div class="col team-member">
+                        <img src="images/ema.jpeg" alt="Gerente de Operaciones">
+                        <h3>Emanuel Conte</h3>
+                        <p>Jefe de Operaciones</p>
+                    </div>
+                    <div class="col team-member">
+                        <img src="images/andre.jpeg" alt="Jefa de Administración">
                         <h3>Andrea Romero</h3>
                         <p>Jefa de Administración</p>
                     </div>
-                    <div class="team-member">
-                        <img src="imagenes/stuff/maby.jpeg"Jefa de Eventos">
+                    <div class="col team-member">
+                        <img src="images/maby.jpeg" alt="Jefa de Eventos">
                         <h3>Maria Belen Colado</h3>
                         <p>Jefa de Eventos</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="imagenes/stuff/nahuel.jpeg"Jefe de Personal">
-                        <h3>Nahuel Marcilli</h3>
-                        <p>Jefe de Personal</p>
                     </div>
                 </div>
             </article>
@@ -92,44 +112,46 @@
     </main>
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h4><i class="fas fa-address-book"></i> Contacto</h4>
-                <address>
-                    <p>Av. Siempreviva 742, Springfield</p>
-                    <p>Tel: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
-                    <p>Email: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
-                </address>
-            </div>
-            
-            <div class="footer-section">
-                <h4><i class="fas fa-clock"></i> Horarios</h4>
-                <p>Lunes a Viernes: 9:00 - 18:00</p>
-                <p>Sábados: 10:00 - 14:00</p>
-            </div>
-            
-            <div class="footer-section">
-                
-                <h4><i class="fas fa-envelope"></i> Newsletter</h4>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit">Suscribirse</button>
-                </form>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Redes Sociales</h4>
-                <div class="social-icons">
-                    <a href="https://facebook.com/idwsa" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/idwsa" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5491122334455" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footer-section">
+                        <h4><i class="fas fa-address-book"></i> Contacto</h4>
+                        <address>
+                            <p>Av. Siempreviva 742, Springfield</p>
+                            <p>Tel: <a href="tel:+5491122334455">+54 9 11 2233-4455</a></p>
+                            <p>Email: <a href="mailto:info@idwsa.com">info@idwsa.com</a></p>
+                        </address>
+                    </div>
+                    <div class="col-md-3 footer-section">
+                        <h4><i class="fas fa-clock"></i> Horarios</h4>
+                        <p>Lunes a Viernes: 9:00 - 18:00</p>
+                        <p>Sábados: 10:00 - 14:00</p>
+                    </div>
+                    <div class="col-md-3 footer-section">
+                        <h4><i class="fas fa-envelope"></i> Newsletter</h4>
+                        <form class="newsletter-form d-flex">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                            <button type="submit" class="btn ms-2">Suscribirse</button>
+                        </form>
+                    </div>
+                    <div class="col-md-3 footer-section">
+                        <h4>Redes Sociales</h4>
+                        <div class="social-icons">
+                            <a href="https://facebook.com/idwsa" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com/idwsa" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/5491122334455" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
         <div class="copyright">
-            <p>&copy; 2025 IDW S.A. - Todos los derechos reservados</p>
+            <p>© 2025 IDW S.A. - Todos los derechos reservados</p>
         </div>
     </footer>
 
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
