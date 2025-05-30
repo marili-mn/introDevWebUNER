@@ -516,3 +516,68 @@ address a:hover{
   }
 
 }
+
+/* Admin Section Styles */
+body {
+  background-color: #f9f9f9;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.container {
+  max-width: 960px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+form .form-label {
+  font-weight: 600;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+input[type="text"], input[type="number"], select {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+}
+
+select[multiple] {
+  height: 120px;
+}
+
+textarea, input:focus, select:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 4px rgba(40, 167, 69, 0.4);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.salon-img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.salon-card {
+  margin-bottom: 2rem;
+}
