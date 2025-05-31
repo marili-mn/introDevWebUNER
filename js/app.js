@@ -101,6 +101,8 @@ function renderSalonesTable() {
   `).join("");
 }
 
+
+
 /**************************
  * Funciones de Formulario
  **************************/
