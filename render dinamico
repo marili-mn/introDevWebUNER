@@ -1,0 +1,26 @@
+import { salones } from './data.js';
+
+function renderSalones(salones) {
+  const container = document.getElementById('salonesContainer');
+  container.innerHTML = salones.map(salon => `
+    <article class="col salon-card">
+      <div class="card h-100">
+        <img src="${salon.imagen}" alt="${salon.nombre}" class="card-img-top salon-img">
+        <div class="card-body">
+          <h3 class="card-title">${salon.nombre}</h3>
+          <ul class="list-unstyled salon-info">
+            <li><strong>Ubicación:</strong> ${salon.ubicacion}</li>
+            <li><strong>Capacidad:</strong> ${salon.capacidad} personas</li>
+            <li><strong>Precio:</strong> ${salon.precio} por evento</li>
+            <li><strong>Servicios incluidos:</strong> ${salon.servicios}</li>
+          </ul>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+          <button class="info-button">Más información</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => renderSalones(salones));
