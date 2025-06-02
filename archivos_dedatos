@@ -1,0 +1,42 @@
+export const salones = [
+  {
+    nombre: "Salón del Bosque",
+    imagen: "images/genial.jpg",
+    ubicacion: "Zona norte",
+    capacidad: 140,
+    precio: "$1935.000",
+    servicios: "Animadoras, catering, pelotero"
+  },
+  {
+    nombre: "Salón Pekes!",
+    imagen: "images/infa4.jpg",
+    ubicacion: "Zona este",
+    capacidad: 50,
+    precio: "$1575.000",
+    servicios: "Pelotero, sonido profesional, catering básico"
+  },
+  {
+    nombre: "Salón Rubí",
+    imagen: "images/salonMesaExterior.jpg",
+    ubicacion: "Zona sur",
+    capacidad: 200,
+    precio: "$3550.000",
+    servicios: "Sonido profesional, pantalla gigante, catering full"
+  },
+  {
+    nombre: "Salón Monster Show",
+    imagen: "images/ado4.jpg",
+    ubicacion: "Zona Oeste",
+    capacidad: 300,
+    precio: "$300.000",
+    servicios: "Sonido profesional, iluminación, mesas y sillas"
+  },
+  {
+    nombre: "Salón Coder Show",
+    imagen: "images/ado5.jpg",
+    ubicacion: "Centro de la ciudad",
+    capacidad: 400,
+    precio: "$4000.000",
+    servicios: "Sonido profesional, iluminación, mesas y sillas"
+  }
+];
