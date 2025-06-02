@@ -1,6 +1,3 @@
-// js/data.js
-// Constante exportada para inicializar LocalStorage según requerimientos del PDF
-
 export const INITIAL_SALONES = [
   {
     id: 1,
