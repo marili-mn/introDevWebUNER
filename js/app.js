@@ -1,9 +1,9 @@
 // js/app.js
 import { INITIAL_SALONES, INITIAL_SERVICIOS, INITIAL_IMAGENES } from './data.js';
 
-/**************************
- * Inicialización de LocalStorage
- **************************/
+/*--------------------------
+ Inicialización de LocalStorage
+ --------------------------*/
 function initLocalStorage() {
   if (!localStorage.getItem("salones")) {
     localStorage.setItem("salones", JSON.stringify(INITIAL_SALONES));
@@ -16,9 +16,11 @@ function initLocalStorage() {
   }
 }
 
-/**************************
- * Utilidades de LocalStorage
- **************************/
+
+
+/*--------------------------
+  Utilidades de LocalStorage
+ --------------------------*/
 function getSalones() {
   return JSON.parse(localStorage.getItem("salones")) || [];
 }
@@ -35,9 +37,11 @@ function generateId(items) {
   return items.length ? Math.max(...items.map(i => i.id)) + 1 : 1;
 }
 
-/**************************
- * CRUD Salones
- **************************/
+
+
+/*--------------------------
+  CRUD Salones
+ --------------------------*/
 function createSalon(salonData) {
   const salones = getSalones();
   const newSalon = {
@@ -70,9 +74,11 @@ function getSalonById(id) {
   return getSalones().find(s => s.id === id);
 }
 
-/**************************
- * Renderizado de Tablas HTML
- **************************/
+
+
+/*--------------------------
+ Renderizado de Tablas HTML
+ --------------------------*/
 function renderSalonesTable() {
   const tbody = document.getElementById("salonesTableBody");
   if (!tbody) return;
@@ -103,9 +109,9 @@ function renderSalonesTable() {
 
 
 
-/**************************
- * Funciones de Formulario
- **************************/
+/*--------------------------
+ Funciones de Formulario
+ --------------------------*/
 function saveSalonFromForm(event) {
   event.preventDefault();
 
@@ -145,9 +151,11 @@ function saveSalonFromForm(event) {
   if (modal) modal.hide();
 }
 
-/**************************
- * Funciones de Edición
- **************************/
+
+
+/*-------------------------
+  Funciones de Edición
+ --------------------------*/
 function editSalon(id) {
   const salon = getSalonById(id);
   if (!salon) return;
@@ -175,9 +183,11 @@ function editSalon(id) {
   modal.show();
 }
 
-/**************************
- * Funciones de Visualización
- **************************/
+
+
+/*--------------------------
+ Funciones de Visualización
+ --------------------------*/
 function viewSalon(id) {
   const salon = getSalonById(id);
   if (!salon) return;
@@ -213,9 +223,9 @@ function viewSalon(id) {
   modal.show();
 }
 
-/**************************
- * Confirmación de Eliminación
- **************************/
+/*--------------------------
+  Confirmación de Eliminación
+ --------------------------*/
 function confirmDeleteSalon(id) {
   if (confirm('¿Está seguro de que desea eliminar este salón?')) {
     deleteSalon(id);
@@ -224,9 +234,9 @@ function confirmDeleteSalon(id) {
   }
 }
 
-/**************************
- * Renderizado dinámico en el catálogo
- **************************/
+/*--------------------------
+  Renderizado dinámico en el catálogo
+ --------------------------*/
 function renderSalonesEnCatalogo() {
   const grid = document.querySelector(".salones-grid");
   if (!grid) return;
@@ -263,9 +273,9 @@ function renderSalonesEnCatalogo() {
   });
 }
 
-/**************************
- * Inicialización de servicios
- **************************/
+/*--------------------------
+ Inicialización de servicios
+ --------------------------*/
 function populateServiciosCheckboxes() {
   const container = document.getElementById('serviciosCheckboxes');
   if (!container) return;
@@ -283,9 +293,9 @@ function populateServiciosCheckboxes() {
   `).join('');
 }
 
-/**************************
- * Inicialización de la aplicación
- **************************/
+/*--------------------------
+ Inicialización de la aplicación
+ --------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
   // Inicializar LocalStorage
   initLocalStorage();

@@ -518,47 +518,182 @@ address a:hover{
 }
 
 /* Admin Section Styles */
-body {
-  background-color: #f4f6f9;
-  font-family: 'Segoe UI', sans-serif;
+/* ==========================================================================
+   Admin Panel Flex Layout Improvements
+   ========================================================================== */
+
+/* Main container flex layout */
+main.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 2rem;
 }
 
-h1, h2 {
-  color: #212529;
-}
-
-.table th, .table td {
-  vertical-align: middle;
+/* Header section with flex centering */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.btn-success {
-  background-color: #28a745;
-  border: none;
+/* Table section with flex layout */
+section[aria-labelledby="listado-salones"] {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.btn-success:hover {
-  background-color: #218838;
+/* Table responsive wrapper */
+.table-responsive {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.btn-primary {
-  background-color: #0d6efd;
+/* Table with full height */
+.table {
+  flex: 1;
+  margin-bottom: 0;
 }
 
-.btn-primary:hover {
-  background-color: #0b5ed7;
+/* Modal content flex improvements */
+.modal-body {
+  display: flex;
+  flex-direction: column;
 }
 
-.modal-header.bg-success,
-.modal-header.bg-info {
-  color: #fff;
+/* Form flex layout */
+#salonForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-textarea:focus, input:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 4px rgba(13, 110, 253, 0.4);
+/* Form row improvements */
+#salonForm .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Form columns responsive flex */
+#salonForm .col-md-6,
+#salonForm .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+}
+
+#salonForm .col-12 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Fieldset flex layout */
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Services checkboxes flex grid */
+#serviciosCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
 }
 
 #serviciosCheckboxes .form-check {
-  padding-left: 1rem;
+  flex: 0 1 calc(50% - 0.375rem);
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+/* Button container alignment */
+.col-12.text-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+}
+
+/* Action buttons flex layout */
+.table td:last-child {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* View modal body flex */
+#viewSalonModalBody {
+  display: flex;
+  flex-direction: column;
+}
+
+#viewSalonModalBody .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#viewSalonModalBody .col-md-6 {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Stack form columns on mobile */
+  #salonForm .col-md-6,
+  #salonForm .col-md-4 {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }	
+  
+  /* Single column checkboxes on mobile */
+  #serviciosCheckboxes .form-check {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  
+  /* Stack action buttons vertically on very small screens */
+  .table td:last-child {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Full width buttons on mobile */
+  .table .btn {
+    width: 100%;
+    min-width: 120px;
+  }
+  
+  /* Modal columns stack on mobile */
+  #viewSalonModalBody .col-md-6 {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Reduce gaps on very small screens */
+  main.container {
+    gap: 1rem;
+  }
+  
+  #salonForm .row {
+    gap: 0.5rem;
+  }
+  
+  #serviciosCheckboxes {
+    gap: 0.5rem;
+  }
 }

@@ -69,7 +69,7 @@ export const INITIAL_SERVICIOS = [
   { id: 5, nombre: "Catering básico", precio: 200000 },
   { id: 6, nombre: "Catering full", precio: 500000 },
   { id: 7, nombre: "Animadoras", precio: 150000 },
-  { id: 8, nombre: "Pelotero", precio: 100000 },
+  { id: 8, nombre: "DJ/Banda/Show", precio: 100000 },
   { id: 9, nombre: "Pantalla gigante", precio: 180000 }
 ];
 

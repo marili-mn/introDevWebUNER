@@ -78,6 +78,7 @@
                       type="text"
                       class="form-control"
                       id="nombre"
+                      placeholder="Ej: Salón Fiesta Grande"
                       required
                     />
                   </div>
@@ -87,6 +88,7 @@
                       type="text"
                       class="form-control"
                       id="ubicacion"
+                      placeholder="Ej: Av. Principal #123, Ciudad"
                       required
                     />
                   </div>
@@ -96,6 +98,8 @@
                       type="number"
                       class="form-control"
                       id="capacidad"
+                      placeholder="Ej: 150"
+                      min="1"
                     />
                   </div>
                   <div class="col-md-4">
@@ -104,13 +108,22 @@
                       type="number"
                       class="form-control"
                       id="precio"
+                      placeholder="Ej: 2500"
+                      min="0"
+                      step="0.01"
                     />
                   </div>
                   <div class="col-md-4">
                     <label for="imagenes" class="form-label"
-                      >Imagen principal (URL)</label
+                      >Imágenes (URLs separadas por coma)</label
                     >
-                    <input type="text" class="form-control" id="imagenes" />
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="imagenes" 
+                      placeholder="Ej: https://ejemplo.com/imagen1.jpg, https://ejemplo.com/imagen2.jpg"
+                    />
+                    <small class="text-muted">Puedes agregar múltiples URLs separadas por comas</small>
                   </div>
                   <div class="col-12">
                     <label for="descripcion" class="form-label"
@@ -120,6 +133,7 @@
                       id="descripcion"
                       class="form-control"
                       rows="3"
+                      placeholder="Describa las características principales del salón..."
                     ></textarea>
                   </div>
                   <div class="col-12">
