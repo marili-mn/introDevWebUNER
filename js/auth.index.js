@@ -47,46 +47,9 @@ window.logout = function() {
     window.location.href = 'login.html';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Verificar si estamos en una página que requiere autenticación
-    const currentPage = window.location.pathname;
-    const protectedPages = ['admin.html', 'usuarios.html'];
-    
-    // Si estamos en una página protegida, verificar autenticación
-    if (protectedPages.some(page => currentPage.endsWith(page))) {
-        if (!window.isAuthenticated()) {
-            window.location.href = 'login.html';
-        }
-    }
-
-    // Configurar formulario de login si existe
-    const loginForm = document.getElementById('loginForm');
-    const loginError = document.getElementById('loginError');
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            loginError.classList.add('d-none');
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            try {
-                const success = await login(username, password);
-                if (success) {
-                    window.location.href = 'admin.html';
-                }
-            } catch (error) {
-                loginError.textContent = error.message;
-                loginError.classList.remove('d-none');
-            }
-        });
-    }
-});
-
 // Middleware para verificar autenticación
 window.checkAuth = function() {
     if (!window.isAuthenticated()) {
         window.location.href = 'login.html';
     }
-};
+}

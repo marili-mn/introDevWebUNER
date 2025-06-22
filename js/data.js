@@ -1,4 +1,4 @@
-export const INITIAL_SALONES = [
+window.INITIAL_SALONES = [
   {
     id: 1,
     nombre: "Salón Monster Show",
@@ -61,7 +61,7 @@ export const INITIAL_SALONES = [
   }
 ];
 
-export const INITIAL_SERVICIOS = [
+window.INITIAL_SERVICIOS = [
   { id: 1, nombre: "Sonido básico", precio: 50000 },
   { id: 2, nombre: "Sonido profesional", precio: 120000 },
   { id: 3, nombre: "Iluminación", precio: 80000 },
@@ -73,7 +73,7 @@ export const INITIAL_SERVICIOS = [
   { id: 9, nombre: "Pantalla gigante", precio: 180000 }
 ];
 
-export const INITIAL_IMAGENES = [
+window.INITIAL_IMAGENES = [
   { id: 1, nombre: "Salón Monster - Principal", url: "images/ado3.jpg", salonId: 1 },
   { id: 2, nombre: "Salón del Bosque - Principal", url: "images/genial.jpg", salonId: 2 },
   { id: 3, nombre: "Salón Pekes - Principal", url: "images/infa4.jpg", salonId: 3 },

@@ -1,11 +1,11 @@
 // js/app.js
-import { INITIAL_SALONES, INITIAL_SERVICIOS, INITIAL_IMAGENES } from './data.js';
-import './auth.js';  // Importar auth.js para asegurar que las funciones estén disponibles
+// Usar variables globales en lugar de importaciones ES6
+const INITIAL_SALONES = window.INITIAL_SALONES;
+const INITIAL_SERVICIOS = window.INITIAL_SERVICIOS;
+const INITIAL_IMAGENES = window.INITIAL_IMAGENES;
 
 // Función para obtener todos los usuarios
-const API_URL = {
-    USERS: 'https://dummyjson.com/users'
-};
+// Usar la configuración global de API_URL
 
 // Solo inicializar localStorage una vez
 let isLocalStorageInitialized = false;
@@ -17,7 +17,7 @@ if (!isLocalStorageInitialized) {
 // Función para obtener todos los usuarios
 async function fetchUsers() {
     try {
-        const response = await fetch(API_URL.USERS);
+        const response = await fetch(window.API_URL.USERS);
         if (!response.ok) throw new Error('Error al obtener usuarios');
         const data = await response.json();
         return data.users;
@@ -78,9 +78,6 @@ function initLocalStorage() {
   if (!localStorage.getItem("imagenes")) {
     localStorage.setItem("imagenes", JSON.stringify(INITIAL_IMAGENES));
   }
-  
-  // Renderizar los salones en el catálogo
-  renderSalonesEnCatalogo();
 }
 
 /**************************
@@ -297,6 +294,11 @@ function confirmDeleteSalon(id) {
  * Renderizado dinámico en el catálogo
  **************************/
 function renderSalonesEnCatalogo() {
+  // Solo renderizar en index.html
+  if (document.title !== "IDW S.A. - Salones para Eventos") {
+    return;
+  }
+
   const grid = document.querySelector(".salones-grid");
   if (!grid) {
     console.error("No se encontró el contenedor de salones");
@@ -367,22 +369,71 @@ function populateServiciosCheckboxes() {
  * Inicialización de la aplicación
  **************************/
 document.addEventListener("DOMContentLoaded", () => {
-  // Renderizar elementos según la página actual
-  if (document.querySelector(".salones-grid")) {
-    renderSalonesEnCatalogo();
-  }
-  
-  if (document.getElementById("salonesTableBody")) {
-    renderSalonesTable();
-    populateServiciosCheckboxes();
-    
-    // Event listener para formulario
-    const salonForm = document.getElementById("salonForm");
-    if (salonForm) {
-      salonForm.addEventListener("submit", saveSalonFromForm);
+    // Inicializar localStorage si no está inicializado
+    if (!localStorage.getItem("salones")) {
+        initLocalStorage();
     }
-  }
+    
+    // Renderizar los salones en el catálogo
+    renderSalonesEnCatalogo();
+    
+    // Configurar la tabla de salones si existe
+    const tbody = document.getElementById("salonesTableBody");
+    if (tbody) {
+        renderSalonesTable();
+        populateServiciosCheckboxes();
+        
+        // Event listener para formulario
+        const salonForm = document.getElementById("salonForm");
+        if (salonForm) {
+            salonForm.addEventListener("submit", saveSalonFromForm);
+        }
+    }
+
+    // Configurar el botón de usuarios
+    const usuariosButton = document.querySelector("a[href='usuarios.html']");
+    if (usuariosButton) {
+        usuariosButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const usuariosSection = document.getElementById("usuariosSection");
+            usuariosSection.classList.toggle("d-none");
+            renderUsersTable();
+        });
+    }
 });
+
+// Función para renderizar la tabla de usuarios
+function renderUsersTable() {
+    const tbody = document.getElementById("usuariosTableBody");
+    if (!tbody) return;
+
+    // Obtener usuarios usando la API de dummyjson
+    fetch(window.API_URL.USERS)
+        .then(response => response.json())
+        .then(data => {
+            const users = data.users;
+            tbody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.firstName} ${user.lastName}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" onclick="viewUser(${user.id})">
+                            <i class="fas fa-eye"></i> Ver
+                        </button>
+                        <button class="btn btn-warning btn-sm" onclick="editUser(${user.id})">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDeleteUser(${user.id})">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        })
+        .catch(error => console.error('Error al cargar usuarios:', error));
+}
 
 // Exponer funciones globalmente para uso en HTML
 window.editSalon = editSalon;
