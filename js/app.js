@@ -1,5 +1,54 @@
 // js/app.js
 import { INITIAL_SALONES, INITIAL_SERVICIOS, INITIAL_IMAGENES } from './data.js';
+import { isAuthenticated } from './auth.js';
+
+// Configuración de la API
+const API_URL = {
+    USERS: 'https://dummyjson.com/users'
+};
+
+// Función para obtener todos los usuarios
+async function fetchUsers() {
+    try {
+        const response = await fetch(API_URL.USERS);
+        if (!response.ok) throw new Error('Error al obtener usuarios');
+        const data = await response.json();
+        return data.users;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
+
+// Función para renderizar la tabla de usuarios
+function renderUsersTable() {
+    fetchUsers().then(users => {
+        const tbody = document.getElementById("usuariosTableBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = users.map(user => `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.firstName} ${user.lastName}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
+                <td>
+                    <button class="btn btn-info btn-sm" onclick="viewUser(${user.id})">
+                        <i class="fas fa-eye"></i> Ver
+                    </button>
+                    <button class="btn btn-warning btn-sm" onclick="editUser(${user.id})">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="confirmDeleteUser(${user.id})">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+    }).catch(error => {
+        console.error('Error al renderizar usuarios:', error);
+    });
+}
 
 /**************************
  * Inicialización de LocalStorage
