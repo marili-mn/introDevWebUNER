@@ -5,24 +5,16 @@ const INITIAL_SERVICIOS = window.INITIAL_SERVICIOS;
 const INITIAL_IMAGENES = window.INITIAL_IMAGENES;
 
 // Función para obtener todos los usuarios
-// Usar la configuración global de API_URL
-
-// Solo inicializar localStorage una vez
-let isLocalStorageInitialized = false;
-if (!isLocalStorageInitialized) {
-  initLocalStorage();
-  isLocalStorageInitialized = true;
-}
-
-// Función para obtener todos los usuarios
 async function fetchUsers() {
     try {
         const response = await fetch(window.API_URL.USERS);
-        if (!response.ok) throw new Error('Error al obtener usuarios');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        return data.users;
+        return data.users; // La API de dummyjson devuelve un objeto con la propiedad users
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error al obtener usuarios:', error);
         throw error;
     }
 }
@@ -54,6 +46,7 @@ function renderUsersTable() {
         `).join('');
     }).catch(error => {
         console.error('Error al renderizar usuarios:', error);
+        mostrarMensaje('Error al cargar los usuarios. Por favor, inténtalo nuevamente.');
     });
 }
 
@@ -99,6 +92,102 @@ function getServicios() {
 
 function generateId(items) {
   return items.length ? Math.max(...items.map(i => i.id)) + 1 : 1;
+}
+
+// Funciones del carrito
+function getCarrito() {
+  return JSON.parse(localStorage.getItem('carrito')) || [];
+}
+
+function saveCarrito(carrito) {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function agregarAlCarrito(item) {
+  const carrito = getCarrito();
+  carrito.push(item);
+  saveCarrito(carrito);
+  mostrarMensaje(`¡${item.nombre} agregado al carrito!`);
+}
+
+function removerDelCarrito(id) {
+  const carrito = getCarrito();
+  const nuevoCarrito = carrito.filter(item => item.id !== id);
+  saveCarrito(nuevoCarrito);
+}
+
+function vaciarCarrito() {
+  saveCarrito([]);
+}
+
+function actualizarCarrito() {
+  const carrito = getCarrito();
+  const carritoContenido = document.getElementById('carrito-contenido');
+  const carritoTotal = document.getElementById('carrito-total');
+  
+  if (!carritoContenido || !carritoTotal) return;
+
+  // Calcular total
+  const total = carrito.reduce((sum, item) => sum + (item.precio || 0), 0);
+  
+  // Renderizar items
+  carritoContenido.innerHTML = carrito.length > 0 ? carrito.map(item => `
+      <div class="card mb-2">
+          <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                      <h6 class="card-title mb-1">${item.nombre}</h6>
+                      <p class="card-text small mb-0">${item.tipo === 'salon' ? 'Salón' : 'Servicio'}</p>
+                      <p class="card-text small text-muted">$${item.precio?.toLocaleString('es-AR') || '0'}</p>
+                  </div>
+                  <button class="btn btn-sm btn-danger" onclick="removerDelCarrito('${item.id}')">Quitar</button>
+              </div>
+          </div>
+      </div>
+  `).join('') : '<p class="text-muted">El carrito está vacío</p>';
+
+  // Actualizar total
+  carritoTotal.textContent = `$${total.toLocaleString('es-AR')}`;
+}
+
+function procesarCompra() {
+  const carrito = getCarrito();
+  if (carrito.length === 0) {
+    mostrarMensaje('El carrito está vacío');
+    return;
+  }
+
+  // Aquí podrías implementar la lógica de procesamiento de compra
+  mostrarMensaje('¡Compra procesada exitosamente!');
+  vaciarCarrito();
+  actualizarCarrito();
+}
+
+function getServicioById(id) {
+  const servicios = getServicios();
+  return servicios.find(servicio => servicio.id === parseInt(id));
+}
+
+function mostrarMensaje(mensaje) {
+  const toast = document.createElement('div');
+  toast.className = 'toast-message';
+  toast.textContent = mensaje;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+function mostrarMensaje(mensaje) {
+  const toast = document.createElement('div');
+  toast.className = 'toast-message';
+  toast.textContent = mensaje;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
 }
 
 /**************************
@@ -292,77 +381,79 @@ function confirmDeleteSalon(id) {
 
 /**************************
  * Renderizado dinámico en el catálogo
- **************************/
+ *************************/
 function renderSalonesEnCatalogo() {
-  // Solo renderizar en index.html
-  if (document.title !== "IDW S.A. - Salones para Eventos") {
+  // Solo renderizar en la página principal
+  if (window.location.pathname !== '/index.html') {
     return;
   }
 
-  const grid = document.querySelector(".salones-grid");
+  const grid = document.querySelector('.salones-grid');
   if (!grid) {
     console.error("No se encontró el contenedor de salones");
     return;
   }
 
   const salones = getSalones();
-  console.log("Renderizando salones:", salones);
-  grid.innerHTML = "";
-
-  if (salones.length === 0) {
-    console.error("No hay salones para mostrar");
-    return;
-  }
-
-  salones.forEach(salon => {
-    const serviciosText = Array.isArray(salon.servicios) ? 
-      salon.servicios.join(', ') : salon.servicios;
-    
-    const imgSrc = Array.isArray(salon.imagenes) ? 
-      salon.imagenes[0] : salon.imagenes || "images/placeholder.jpg";
-
-    const card = document.createElement("article");
-    card.className = "col salon-card";
-    card.innerHTML = `
-      <div class="card h-100">
-        <img src="${imgSrc}" class="card-img-top salon-img" alt="${salon.nombre}" />
-        <div class="card-body">
-          <h3 class="card-title">${salon.nombre}</h3>
-          <ul class="list-unstyled salon-info">
-            <li><strong>Ubicación:</strong> ${salon.ubicacion}</li>
-            <li><strong>Capacidad:</strong> ${salon.capacidad} personas</li>
-            <li><strong>Precio:</strong> $${salon.precio.toLocaleString('es-AR')} por evento</li>
-            <li><strong>Servicios incluidos:</strong> ${serviciosText}</li>
-          </ul>
-        </div>
-        <div class="card-footer bg-transparent border-0">
-          <button class="info-button" onclick="viewSalon(${salon.id})">Más información</button>
-        </div>
-      </div>`;
-    grid.appendChild(card);
-  });
-
-  console.log("Salones renderizados");
-}
-
-/**************************
- * Inicialización de servicios
- **************************/
-function populateServiciosCheckboxes() {
-  const container = document.getElementById('serviciosCheckboxes');
-  if (!container) return;
-
   const servicios = getServicios();
-  container.innerHTML = servicios.map(servicio => `
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" 
-             name="servicios" value="${servicio.nombre}" 
-             id="servicio${servicio.id}">
-      <label class="form-check-label" for="servicio${servicio.id}">
-        ${servicio.nombre} ${servicio.precio ? `($${servicio.precio.toLocaleString('es-AR')})` : ''}
-      </label>
+  
+  // Renderizar servicios
+  const serviciosHtml = servicios.map(servicio => `
+    <div class="col-12 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">${servicio.nombre}</h5>
+          <p class="card-text">${servicio.descripcion || 'Descripción no disponible'}</p>
+          <p class="card-text"><strong>Precio:</strong> $${servicio.precio.toLocaleString('es-AR')}</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" 
+                   name="servicios" 
+                   data-id="${servicio.id}" 
+                   data-nombre="${servicio.nombre}"
+                   data-precio="${servicio.precio}"
+                   id="servicio${servicio.id}">
+            <label class="form-check-label" for="servicio${servicio.id}">
+              Agregar servicio ($${servicio.precio.toLocaleString('es-AR')})
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   `).join('');
+
+  // Renderizar salones
+  const salonesHtml = salones.map(salon => {
+    // Obtener la imagen del salón desde el array de imágenes
+    const imagen = INITIAL_IMAGENES.find(img => img.id === salon.id);
+    const imagenUrl = imagen ? `images/${imagen.nombre}` : 'images/default-salon.jpg';
+    
+    return `
+    <div class="col-12 mb-3">
+      <div class="card">
+        <img src="${imagenUrl}" class="card-img-top" alt="${salon.nombre}" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">${salon.nombre}</h5>
+          <p class="card-text">${salon.descripcion || 'Descripción no disponible'}</p>
+          <p class="card-text"><strong>Capacidad:</strong> ${salon.capacidad} personas</p>
+          <p class="card-text"><strong>Precio:</strong> $${salon.precio?.toLocaleString('es-AR') || '0'}</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" 
+                   name="salones" 
+                   data-id="${salon.id}"
+                   data-nombre="${salon.nombre}"
+                   data-precio="${salon.precio || 0}"
+                   id="salon${salon.id}">
+            <label class="form-check-label" for="salon${salon.id}">
+              Reservar salon ($${salon.precio?.toLocaleString('es-AR') || '0'})
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  `}).join('');
+
+  // Combinar servicios y salones
+  grid.innerHTML = serviciosHtml + salonesHtml;
 }
 
 /**************************
@@ -374,9 +465,67 @@ document.addEventListener("DOMContentLoaded", () => {
         initLocalStorage();
     }
     
-    // Renderizar los salones en el catálogo
-    renderSalonesEnCatalogo();
-    
+    // Solo inicializar el carrito en la página principal
+    if (window.location.pathname === '/index.html') {
+        // Renderizar los salones en el catálogo
+        renderSalonesEnCatalogo();
+        
+        // Eventos para servicios y salones
+        const serviciosCheckboxes = document.querySelectorAll('input[name="servicios"]');
+        serviciosCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    agregarAlCarrito({
+                        id: e.target.dataset.id,
+                        nombre: e.target.dataset.nombre,
+                        precio: parseFloat(e.target.dataset.precio),
+                        tipo: 'servicio'
+                    });
+                } else {
+                    removerDelCarrito(e.target.dataset.id);
+                }
+                actualizarCarrito();
+            });
+        });
+
+        const salonesCheckboxes = document.querySelectorAll('input[name="salones"]');
+        salonesCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    agregarAlCarrito({
+                        id: e.target.dataset.id,
+                        nombre: e.target.dataset.nombre,
+                        precio: parseFloat(e.target.dataset.precio),
+                        tipo: 'salon'
+                    });
+                } else {
+                    removerDelCarrito(e.target.dataset.id);
+                }
+                actualizarCarrito();
+            });
+        });
+
+        // Evento para vaciar carrito
+        const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+        if (vaciarCarritoBtn) {
+            vaciarCarritoBtn.addEventListener('click', () => {
+                vaciarCarrito();
+                actualizarCarrito();
+            });
+        }
+
+        // Evento para procesar compra
+        const procesarCompraBtn = document.getElementById('procesar-compra');
+        if (procesarCompraBtn) {
+            procesarCompraBtn.addEventListener('click', () => {
+                procesarCompra();
+            });
+        }
+
+        // Inicializar el carrito
+        actualizarCarrito();
+    }
+
     // Configurar la tabla de salones si existe
     const tbody = document.getElementById("salonesTableBody");
     if (tbody) {
@@ -390,15 +539,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Configurar el botón de usuarios
-    const usuariosButton = document.querySelector("a[href='usuarios.html']");
-    if (usuariosButton) {
-        usuariosButton.addEventListener("click", (e) => {
-            e.preventDefault();
-            const usuariosSection = document.getElementById("usuariosSection");
-            usuariosSection.classList.toggle("d-none");
-            renderUsersTable();
-        });
+    // Configurar la tabla de usuarios si existe
+    const usuariosTbody = document.getElementById("usuariosTableBody");
+    if (usuariosTbody) {
+        renderUsersTable();
     }
 });
 

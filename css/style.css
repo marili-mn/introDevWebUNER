@@ -191,6 +191,48 @@ body {
 /* ==========================================================================
    Contact Section Styles (contacto.html)
    ========================================================================== */
+/* Toast message styles */
+.toast-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #D62D0F;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Carrito button styles */
+.btn-success {
+  background-color: #D62D0F;
+  border-color: #D62D0F;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #B0240C;
+  border-color: #B0240C;
+}
+
+.btn-success i {
+  margin-right: 5px;
+}
+
 /* Contact section with vertical padding */
 .contact-section {
   padding: 60px 0;
