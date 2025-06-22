@@ -1,11 +1,18 @@
 // js/app.js
 import { INITIAL_SALONES, INITIAL_SERVICIOS, INITIAL_IMAGENES } from './data.js';
-import { isAuthenticated } from './auth.js';
+import './auth.js';  // Importar auth.js para asegurar que las funciones estén disponibles
 
-// Configuración de la API
+// Función para obtener todos los usuarios
 const API_URL = {
     USERS: 'https://dummyjson.com/users'
 };
+
+// Solo inicializar localStorage una vez
+let isLocalStorageInitialized = false;
+if (!isLocalStorageInitialized) {
+  initLocalStorage();
+  isLocalStorageInitialized = true;
+}
 
 // Función para obtener todos los usuarios
 async function fetchUsers() {
@@ -54,22 +61,35 @@ function renderUsersTable() {
  * Inicialización de LocalStorage
  **************************/
 function initLocalStorage() {
+  // Inicializar salones
   if (!localStorage.getItem("salones")) {
     localStorage.setItem("salones", JSON.stringify(INITIAL_SALONES));
+    console.log("Inicializando salones desde data.js");
+  } else {
+    console.log("Salones ya existen en localStorage");
   }
+  
+  // Inicializar servicios
   if (!localStorage.getItem("servicios")) {
     localStorage.setItem("servicios", JSON.stringify(INITIAL_SERVICIOS));
   }
+  
+  // Inicializar imágenes
   if (!localStorage.getItem("imagenes")) {
     localStorage.setItem("imagenes", JSON.stringify(INITIAL_IMAGENES));
   }
+  
+  // Renderizar los salones en el catálogo
+  renderSalonesEnCatalogo();
 }
 
 /**************************
  * Utilidades de LocalStorage
  **************************/
 function getSalones() {
-  return JSON.parse(localStorage.getItem("salones")) || [];
+  const salones = JSON.parse(localStorage.getItem("salones")) || [];
+  console.log("Salones obtenidos:", salones);
+  return salones;
 }
 
 function saveSalones(salones) {
@@ -278,10 +298,19 @@ function confirmDeleteSalon(id) {
  **************************/
 function renderSalonesEnCatalogo() {
   const grid = document.querySelector(".salones-grid");
-  if (!grid) return;
+  if (!grid) {
+    console.error("No se encontró el contenedor de salones");
+    return;
+  }
 
   const salones = getSalones();
+  console.log("Renderizando salones:", salones);
   grid.innerHTML = "";
+
+  if (salones.length === 0) {
+    console.error("No hay salones para mostrar");
+    return;
+  }
 
   salones.forEach(salon => {
     const serviciosText = Array.isArray(salon.servicios) ? 
@@ -310,6 +339,8 @@ function renderSalonesEnCatalogo() {
       </div>`;
     grid.appendChild(card);
   });
+
+  console.log("Salones renderizados");
 }
 
 /**************************
@@ -336,9 +367,6 @@ function populateServiciosCheckboxes() {
  * Inicialización de la aplicación
  **************************/
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicializar LocalStorage
-  initLocalStorage();
-
   // Renderizar elementos según la página actual
   if (document.querySelector(".salones-grid")) {
     renderSalonesEnCatalogo();

@@ -42,6 +42,11 @@ async function login(username, password) {
 }
 
 // Función para cerrar sesión
+function logout() {
+    sessionStorage.removeItem('accessToken');
+    window.location.href = 'login.html';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const loginError = document.getElementById('loginError');
@@ -74,7 +79,11 @@ window.checkAuth = function() {
     }
 };
 
-// Exponer funciones globales
+// Exportar funciones
+export { isAuthenticated, getAccessToken, login, logout };
+
+// También exponer funciones globales para compatibilidad
 window.isAuthenticated = isAuthenticated;
 window.getAccessToken = getAccessToken;
 window.login = login;
+window.logout = logout;
