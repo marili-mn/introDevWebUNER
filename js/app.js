@@ -112,8 +112,10 @@ function agregarAlCarrito(item) {
 
 function removerDelCarrito(id) {
   const carrito = getCarrito();
-  const nuevoCarrito = carrito.filter(item => item.id !== id);
+  const nuevoCarrito = carrito.filter(item => item.id.toString() !== id.toString());
   saveCarrito(nuevoCarrito);
+  actualizarCarrito();
+  mostrarMensaje('Elemento removido del carrito');
 }
 
 function vaciarCarrito() {
