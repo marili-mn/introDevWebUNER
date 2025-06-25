@@ -71,7 +71,8 @@ window.logout = function() {
 
 // Middleware para verificar autenticación
 window.checkAuth = function() {
-    if (!window.isAuthenticated()) {
+    // Solo redirigir a login si no está en la página de inicio
+    if (!window.isAuthenticated() && window.location.pathname !== '/index.html' && window.location.pathname !== '/') {
         window.location.href = 'login.html';
     }
 }

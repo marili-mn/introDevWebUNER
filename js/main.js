@@ -1,6 +1,15 @@
 // Manejo de eventos del carrito
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar carrito
+    const carritoContenido = document.getElementById('carrito-contenido');
+    const carritoTotal = document.getElementById('carrito-total');
+    
+    if (!carritoContenido || !carritoTotal) {
+        console.error('Elementos del carrito no encontrados');
+        return;
+    }
+
     // Manejar eventos de checkboxes de salones
     document.addEventListener('change', (e) => {
         if (e.target.name === 'salones' && e.target.checked) {
@@ -11,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tipo: 'salon'
             };
             agregarAlCarrito(salon);
+            actualizarCarrito();
         } else if (e.target.name === 'salones' && !e.target.checked) {
             removerDelCarrito(e.target.dataset.id);
         }
@@ -26,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tipo: 'servicio'
             };
             agregarAlCarrito(servicio);
+            actualizarCarrito();
         } else if (e.target.name === 'servicios' && !e.target.checked) {
             removerDelCarrito(e.target.dataset.id);
         }
@@ -40,5 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizarCarrito();
     });
 
-    document.getElementById('procesar-compra')?.addEventListener('click', procesarCompra);
+    // Modificar procesarCompra para requerir login
+    document.getElementById('procesar-compra')?.addEventListener('click', () => {
+        if (!window.isAuthenticated()) {
+            mostrarMensaje('Debes iniciar sesión para procesar la compra');
+            return;
+        }
+        procesarCompra();
+    });
 });
