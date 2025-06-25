@@ -55,21 +55,27 @@ function renderUsersTable() {
  **************************/
 function initLocalStorage() {
   // Inicializar salones
-  if (!localStorage.getItem("salones")) {
-    localStorage.setItem("salones", JSON.stringify(INITIAL_SALONES));
-    console.log("Inicializando salones desde data.js");
-  } else {
-    console.log("Salones ya existen en localStorage");
+  const salones = localStorage.getItem('salones');
+  if (!salones) {
+    localStorage.setItem('salones', JSON.stringify(INITIAL_SALONES));
   }
-  
+
   // Inicializar servicios
-  if (!localStorage.getItem("servicios")) {
-    localStorage.setItem("servicios", JSON.stringify(INITIAL_SERVICIOS));
+  const servicios = localStorage.getItem('servicios');
+  if (!servicios) {
+    localStorage.setItem('servicios', JSON.stringify(INITIAL_SERVICIOS));
   }
-  
+
+  // Inicializar carrito
+  const carrito = localStorage.getItem('carrito');
+  if (!carrito) {
+    localStorage.setItem('carrito', JSON.stringify([]));
+  }
+
   // Inicializar imágenes
-  if (!localStorage.getItem("imagenes")) {
-    localStorage.setItem("imagenes", JSON.stringify(INITIAL_IMAGENES));
+  const imagenes = localStorage.getItem('imagenes');
+  if (!imagenes) {
+    localStorage.setItem('imagenes', JSON.stringify(INITIAL_IMAGENES));
   }
 }
 
@@ -461,90 +467,91 @@ function renderSalonesEnCatalogo() {
  * Inicialización de la aplicación
  **************************/
 document.addEventListener("DOMContentLoaded", () => {
-    // Inicializar localStorage si no está inicializado
-    if (!localStorage.getItem("salones")) {
-        initLocalStorage();
-    }
-    
-    // Solo inicializar el carrito en la página principal
-    if (window.location.pathname === '/index.html') {
-        // Renderizar los salones en el catálogo
-        renderSalonesEnCatalogo();
-        
-        // Eventos para servicios y salones
-        const serviciosCheckboxes = document.querySelectorAll('input[name="servicios"]');
-        serviciosCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    agregarAlCarrito({
-                        id: e.target.dataset.id,
-                        nombre: e.target.dataset.nombre,
-                        precio: parseFloat(e.target.dataset.precio),
-                        tipo: 'servicio'
-                    });
-                } else {
-                    removerDelCarrito(e.target.dataset.id);
-                }
-                actualizarCarrito();
-            });
-        });
+  // Inicializar LocalStorage
+  initLocalStorage();
 
-        const salonesCheckboxes = document.querySelectorAll('input[name="salones"]');
-        salonesCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    agregarAlCarrito({
-                        id: e.target.dataset.id,
-                        nombre: e.target.dataset.nombre,
-                        precio: parseFloat(e.target.dataset.precio),
-                        tipo: 'salon'
-                    });
-                } else {
-                    removerDelCarrito(e.target.dataset.id);
-                }
-                actualizarCarrito();
-            });
-        });
+  // Inicializar autenticación
+  window.initAuth();
 
-        // Evento para vaciar carrito
-        const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
-        if (vaciarCarritoBtn) {
-            vaciarCarritoBtn.addEventListener('click', () => {
-                vaciarCarrito();
-                actualizarCarrito();
-            });
+  // Configurar eventos para la página principal
+  if (window.location.pathname === '/index.html') {
+    // Eventos para servicios
+    const serviciosCheckboxes = document.querySelectorAll('input[name="servicios"]');
+    serviciosCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          agregarAlCarrito({
+            id: e.target.dataset.id,
+            nombre: e.target.dataset.nombre,
+            precio: parseFloat(e.target.dataset.precio),
+            tipo: 'servicio'
+          });
+        } else {
+          removerDelCarrito(e.target.dataset.id);
         }
-
-        // Evento para procesar compra
-        const procesarCompraBtn = document.getElementById('procesar-compra');
-        if (procesarCompraBtn) {
-            procesarCompraBtn.addEventListener('click', () => {
-                procesarCompra();
-            });
-        }
-
-        // Inicializar el carrito
         actualizarCarrito();
-    }
+      });
+    });
 
-    // Configurar la tabla de salones si existe
-    const tbody = document.getElementById("salonesTableBody");
-    if (tbody) {
-        renderSalonesTable();
-        populateServiciosCheckboxes();
-        
-        // Event listener para formulario
-        const salonForm = document.getElementById("salonForm");
-        if (salonForm) {
-            salonForm.addEventListener("submit", saveSalonFromForm);
+    // Eventos para salones
+    const salonesCheckboxes = document.querySelectorAll('input[name="salones"]');
+    salonesCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          agregarAlCarrito({
+            id: e.target.dataset.id,
+            nombre: e.target.dataset.nombre,
+            precio: parseFloat(e.target.dataset.precio),
+            tipo: 'salon'
+          });
+        } else {
+          removerDelCarrito(e.target.dataset.id);
         }
+        actualizarCarrito();
+      });
+    });
+
+    // Eventos para el carrito
+    const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+    if (vaciarCarritoBtn) {
+      vaciarCarritoBtn.addEventListener('click', () => {
+        vaciarCarrito();
+        actualizarCarrito();
+      });
     }
 
-    // Configurar la tabla de usuarios si existe
-    const usuariosTbody = document.getElementById("usuariosTableBody");
-    if (usuariosTbody) {
-        renderUsersTable();
+    const procesarCompraBtn = document.getElementById('procesar-compra');
+    if (procesarCompraBtn) {
+      procesarCompraBtn.addEventListener('click', procesarCompra);
     }
+
+    // Inicializar el carrito
+    actualizarCarrito();
+
+    // Asegurar que los datos estén disponibles
+    setTimeout(() => {
+      renderSalonesEnCatalogo();
+    }, 1000);
+  }
+
+  // Configurar la tabla de salones si existe
+  const tbody = document.getElementById("salonesTableBody");
+  if (tbody) {
+    renderSalonesTable();
+    populateServiciosCheckboxes();
+    
+    // Event listener para formulario
+    const salonForm = document.getElementById("salonForm");
+    if (salonForm) {
+      salonForm.addEventListener("submit", saveSalonFromForm);
+    }
+  }
+
+  // Configurar la tabla de usuarios si existe
+  const usuariosTbody = document.getElementById("usuariosTableBody");
+  if (usuariosTbody) {
+    renderUsersTable();
+  }
 });
 
 // Función para renderizar la tabla de usuarios
