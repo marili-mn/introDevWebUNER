@@ -385,10 +385,11 @@ function confirmDeleteSalon(id) {
 
 // Render catalog
 function renderSalonesEnCatalogo() {
-  const currentPath = window.location.pathname;
-  if (!(currentPath === '/' || currentPath.endsWith('/index.html'))) {
-    return;
-  }
+  // Eliminar la verificación de ruta para que funcione en cualquier página
+  // const currentPath = window.location.pathname;
+  // if (!(currentPath === '/' || currentPath.endsWith('/index.html'))) {
+  //   return;
+  // }
 
   const grid = document.querySelector('.salones-grid');
   if (!grid) {
@@ -475,6 +476,39 @@ document.addEventListener("DOMContentLoaded", () => {
   initLocalStorage();
   // Renderizar salones inmediatamente después de inicializar localStorage
   renderSalonesEnCatalogo();
+
+  // Manejar eventos de checkboxes de salones
+  document.addEventListener('change', (e) => {
+    if (e.target.name === 'salones' && e.target.checked) {
+      const salon = {
+        id: e.target.dataset.id,
+        nombre: e.target.dataset.nombre,
+        precio: parseFloat(e.target.dataset.precio),
+        tipo: 'salon'
+      };
+      agregarAlCarrito(salon);
+    } else if (e.target.name === 'salones' && !e.target.checked) {
+      removerDelCarrito(e.target.dataset.id);
+    }
+  });
+
+  // Manejar eventos de checkboxes de servicios
+  document.addEventListener('change', (e) => {
+    if (e.target.name === 'servicios' && e.target.checked) {
+      const servicio = {
+        id: e.target.dataset.id,
+        nombre: e.target.dataset.nombre,
+        precio: parseFloat(e.target.dataset.precio),
+        tipo: 'servicio'
+      };
+      agregarAlCarrito(servicio);
+    } else if (e.target.name === 'servicios' && !e.target.checked) {
+      removerDelCarrito(e.target.dataset.id);
+    }
+  });
+
+  // Actualizar carrito inicialmente
+  actualizarCarrito();
 
   if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
     renderSalonesEnCatalogo();
