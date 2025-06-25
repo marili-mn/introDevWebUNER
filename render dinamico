@@ -5,14 +5,14 @@ function renderSalones(salones) {
   container.innerHTML = salones.map(salon => `
     <article class="col salon-card">
       <div class="card h-100">
-        <img src="${salon.imagen}" alt="${salon.nombre}" class="card-img-top salon-img">
+        <img src="${salon.imagenes[0]}" alt="${salon.nombre}" class="card-img-top salon-img">
         <div class="card-body">
           <h3 class="card-title">${salon.nombre}</h3>
           <ul class="list-unstyled salon-info">
             <li><strong>Ubicación:</strong> ${salon.ubicacion}</li>
             <li><strong>Capacidad:</strong> ${salon.capacidad} personas</li>
-            <li><strong>Precio:</strong> ${salon.precio} por evento</li>
-            <li><strong>Servicios incluidos:</strong> ${salon.servicios}</li>
+            <li><strong>Precio:</strong> $${salon.precio.toLocaleString()} por evento</li>
+            <li><strong>Servicios incluidos:</strong> ${salon.servicios.join(', ')}</li>
           </ul>
         </div>
         <div class="card-footer bg-transparent border-0">

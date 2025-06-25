@@ -423,9 +423,8 @@ function renderSalonesEnCatalogo() {
 
   // Renderizar salones
   const salonesHtml = salones.map(salon => {
-    // Obtener la imagen del salón desde el array de imágenes
-    const imagen = INITIAL_IMAGENES.find(img => img.id === salon.id);
-    const imagenUrl = imagen ? `images/${imagen.nombre}` : 'images/default-salon.jpg';
+    // Usar la primera imagen del array de imágenes del salón
+    const imagenUrl = salon.imagenes ? salon.imagenes[0] : 'images/default-salon.jpg';
     
     return `
     <div class="col-12 mb-3">
