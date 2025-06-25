@@ -36,7 +36,7 @@ window.INITIAL_SALONES = [
     capacidad: 200,
     precio: 3550000,
     servicios: ["Sonido profesional", "Pantalla gigante", "Catering full"],
-    imagenes: ["images/salonMesaExterior.jpg"],
+    imagenes: ["/images/salonMesaExterior.jpg"],
     descripcion: "Salón premium para eventos de gran envergadura"
   },
   {

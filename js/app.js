@@ -473,6 +473,8 @@ function populateServiciosCheckboxes() {
 // Initialize application
 document.addEventListener("DOMContentLoaded", () => {
   initLocalStorage();
+  // Renderizar salones inmediatamente después de inicializar localStorage
+  renderSalonesEnCatalogo();
 
   if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
     renderSalonesEnCatalogo();
