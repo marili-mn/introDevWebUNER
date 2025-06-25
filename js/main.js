@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 tipo: 'salon'
             };
             agregarAlCarrito(salon);
-            actualizarCarrito();
         } else if (e.target.name === 'salones' && !e.target.checked) {
             removerDelCarrito(e.target.dataset.id);
         }
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 tipo: 'servicio'
             };
             agregarAlCarrito(servicio);
-            actualizarCarrito();
         } else if (e.target.name === 'servicios' && !e.target.checked) {
             removerDelCarrito(e.target.dataset.id);
         }

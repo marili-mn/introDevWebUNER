@@ -102,6 +102,7 @@ function agregarAlCarrito(item) {
   const carrito = getCarrito();
   carrito.push({ ...item, id: item.id.toString() }); // Ensure ID is string
   saveCarrito(carrito);
+  actualizarCarrito();
   mostrarMensaje(`¡${item.nombre} agregado al carrito!`);
 }
 
