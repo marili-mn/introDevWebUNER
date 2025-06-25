@@ -3,6 +3,28 @@ if (!window.API_URL) {
     throw new Error('La configuración de la API no está disponible. Asegúrate de que config.js se cargue primero.');
 }
 
+// Función para inicializar la autenticación
+window.initAuth = function() {
+    // Verificar si hay un token de sesión
+    const token = sessionStorage.getItem('accessToken');
+    if (token) {
+        // Si hay token, verificar si es válido
+        fetch(window.API_URL.USERS, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(response => {
+            if (!response.ok) {
+                // Si el token es inválido, limpiar sesión
+                sessionStorage.removeItem('accessToken');
+            }
+        }).catch(error => {
+            console.error('Error al verificar la sesión:', error);
+            sessionStorage.removeItem('accessToken');
+        });
+    }
+}
+
 // Función para verificar si el usuario está autenticado
 window.isAuthenticated = function() {
     return sessionStorage.getItem('accessToken') !== null;
