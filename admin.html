@@ -15,42 +15,6 @@
     />
   </head>
   <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo_idw.jpg" alt="Logo IDW S.A." class="logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="institucional.html">Información Institucional</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.html">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="admin.html">Administración</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="usuarios.html">Usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn btn-danger" onclick="window.logout()">
-                                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
     <main class="container py-5">
     <script>
         // Verificar autenticación al cargar la página
@@ -76,6 +40,9 @@
               <i class="fas fa-users"></i> Gestión de Usuarios
             </a>
           </div>
+          <button class="btn btn-danger" onclick="window.logout()">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+          </button>
         </div>
       </header>
 
@@ -310,10 +277,30 @@
       <script src="js/data.js"></script>
       <script src="js/app.js"></script>
       <script>
-        // Verificar autenticación al cargar los scripts
-        if (!window.isAuthenticated()) {
-            window.location.href = 'login.html';
-        }
+        
+    // Verificar autenticación al cargar los scripts
+    if (!window.isAuthenticated()) {
+        window.location.href = 'login.html';
+    }
+
+    // Configurar el modal de salón
+    document.getElementById('salonModal').addEventListener('show.bs.modal', function(event) {
+        const salonId = document.getElementById('salonId').value;
+        const title = salonId ? 'Editar Salón' : 'Nuevo Salón';
+        document.getElementById('salonModalLabel').textContent = title;
+    });
+    
+    // Limpiar el formulario cuando se cierre el modal
+    document.getElementById('salonModal').addEventListener('hidden.bs.modal', function() {
+        document.getElementById('salonForm').reset();
+        document.getElementById('salonId').value = '';
+    });
+
+    // Inicializar checkboxes de servicios al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        populateServiciosCheckboxes();
+    });
+
       </script>
     </footer>
   </body>

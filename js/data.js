@@ -36,7 +36,7 @@ window.INITIAL_SALONES = [
     capacidad: 200,
     precio: 3550000,
     servicios: ["Sonido profesional", "Pantalla gigante", "Catering full"],
-    imagenes: ["/images/salonMesaExterior.jpg"],
+    imagenes: ["images/salonMesaExterior.jpg"],
     descripcion: "Salón premium para eventos de gran envergadura"
   },
   {
@@ -81,3 +81,93 @@ window.INITIAL_IMAGENES = [
   { id: 5, nombre: "Salón Monster Oeste - Principal", url: "images/ado4.jpg", salonId: 5 },
   { id: 6, nombre: "Salón Coder - Principal", url: "images/ado5.jpg", salonId: 6 }
 ];
+
+// Función para actualizar un salón
+function updateSalon(id, updatedData) {
+    // Implementa la lógica para actualizar el salón en tu almacenamiento de datos
+    // Esto puede ser localStorage, una API, etc.
+    
+    // Ejemplo con localStorage:
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    const index = salones.findIndex(s => s.id === id);
+    
+    if (index !== -1) {
+        salones[index] = { ...salones[index], ...updatedData };
+        localStorage.setItem('salones', JSON.stringify(salones));
+        return true;
+    }
+    
+    return false;
+}
+
+// Función para obtener un salón por ID
+function getSalonById(id) {
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
+    return salones.find(s => s.id === id);
+}
+
+// Modificar la función saveSalonFromForm para que quede así:
+function saveSalonFromForm(event) {
+  event.preventDefault();
+
+  // Obtener servicios seleccionados
+  const serviciosSeleccionados = Array.from(
+    document.querySelectorAll('#serviciosCheckboxes input[type="checkbox"]:checked')
+  ).map(checkbox => checkbox.value);
+
+  const salonData = {
+    nombre: document.getElementById('nombre').value,
+    ubicacion: document.getElementById('ubicacion').value,
+    capacidad: parseInt(document.getElementById('capacidad').value),
+    precio: parseFloat(document.getElementById('precio').value),
+    servicios: serviciosSeleccionados,
+    imagenes: [document.getElementById('imagenes').value],
+    descripcion: document.getElementById('descripcion').value
+  };
+
+  const salonId = document.getElementById('salonId').value;
+  let success = false;
+
+  if (salonId) {
+    success = updateSalon(parseInt(salonId), salonData);
+    mostrarMensaje(success ? 'Salón actualizado correctamente' : 'Error al actualizar el salón');
+  } else {
+    createSalon(salonData);
+    mostrarMensaje('Salón creado correctamente');
+  }
+
+  if (success || !salonId) {
+    // Resetear formulario
+    document.getElementById('salonForm').reset();
+    document.getElementById('salonId').value = '';
+    
+    // Actualizar UI
+    renderSalonesTable();
+    renderSalonesEnCatalogo();
+    
+    // Cerrar modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('salonModal'));
+    if (modal) modal.hide();
+  }
+}
+
+// Asegurarse que populateServiciosCheckboxes esté definida:
+function populateServiciosCheckboxes() {
+  const serviciosContainer = document.getElementById('serviciosCheckboxes');
+  if (!serviciosContainer) return;
+
+  const servicios = getServicios();
+  serviciosContainer.innerHTML = servicios.map(servicio => `
+    <div class="col">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" 
+               value="${servicio.nombre}" 
+               id="servicio-${servicio.id}"
+               name="servicio">
+        <label class="form-check-label" for="servicio-${servicio.id}">
+          ${servicio.nombre}
+        </label>
+      </div>
+    </div>
+  `).join('');
+}
