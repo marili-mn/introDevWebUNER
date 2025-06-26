@@ -268,6 +268,62 @@
         </div>
       </dialog>
     </section>
+    <section aria-labelledby="listado-servicios" class="mt-5">
+      <h2 id="listado-servicios" class="mb-4">Servicios</h2>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#servicioModal">
+        <i class="fas fa-plus"></i> Nuevo Servicio
+      </button>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Descripción</th>
+              <th>Valor</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+         </thead>
+        <tbody id="serviciosTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Modal Nuevo/Editar Servicio -->
+    <div class="modal fade" id="servicioModal" tabindex="-1" aria-labelledby="servicioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="servicioModalLabel">Nuevo Servicio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="servicioForm">
+                        <input type="hidden" id="servicioId">
+                        <div class="mb-3">
+                            <label for="servicioDescripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="servicioDescripcion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="servicioValor" class="form-label">Valor</label>
+                            <input type="number" class="form-control" id="servicioValor" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="servicioEstado" class="form-label">Estado</label>
+                            <select class="form-control" id="servicioEstado" required>
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <footer>

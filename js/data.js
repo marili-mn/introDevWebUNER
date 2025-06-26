@@ -171,3 +171,134 @@ function populateServiciosCheckboxes() {
     </div>
   `).join('');
 }
+
+// data.js
+let servicios = [
+  {
+    id: 1,
+    descripcion: "Decoración temática",
+    valor: 5000,
+    estado: "activo"
+  },
+  {
+    id: 2,
+    descripcion: "Servicio de catering",
+    valor: 8000,
+    estado: "activo"
+  },
+  {
+    id: 3,
+    descripcion: "Animación infantil",
+    valor: 3500,
+    estado: "activo"
+  }
+];
+
+// Funciones CRUD para servicios
+export const getServicios = () => [...servicios];
+
+export const getServicioById = (id) => servicios.find(s => s.id === id);
+
+export const addServicio = (servicio) => {
+  const newId = servicios.length > 0 ? Math.max(...servicios.map(s => s.id)) + 1 : 1;
+  const newServicio = { 
+    ...servicio, 
+    id: newId,
+    estado: 'activo' // Puedes mantenerlo internamente o eliminarlo completamente
+  };
+  servicios.push(newServicio);
+  return newServicio;
+};
+
+/*export const addServicio = (servicio) => {
+  const newId = servicios.length > 0 ? Math.max(...servicios.map(s => s.id)) + 1 : 1;
+  const newServicio = { ...servicio, id: newId };
+  servicios.push(newServicio);
+  return newServicio;
+};
+*/
+export const updateServicio = (id, updatedServicio) => {
+  const index = servicios.findIndex(s => s.id === id);
+  if (index !== -1) {
+    servicios[index] = { ...updatedServicio, id };
+    return servicios[index];
+  }
+  return null;
+};
+
+export const deleteServicio = (id) => {
+  const index = servicios.findIndex(s => s.id === id);
+  if (index !== -1) {
+    const deleted = servicios.splice(index, 1);
+    return deleted[0];
+  }
+  return null;
+};
+
+// Funciones para salones (existente)
+let salones = [
+  // ... tus salones existentes ...
+  {
+    id: 1,
+    nombre: "Salón Monster Show",
+    ubicacion: "Centro de la ciudad",
+    capacidad: 150,
+    precio: 1550000,
+    servicios: ["Sonido básico", "Iluminación", "Mesas y sillas"],
+    imagenes: ["images/ado3.jpg"],
+    descripcion: "Salón ideal para eventos corporativos y celebraciones familiares"
+  },
+  {
+    id: 2,
+    nombre: "Salón del Bosque",
+    ubicacion: "Zona norte",
+    capacidad: 140,
+    precio: 1935000,
+    servicios: ["Animadoras", "Catering", "Pelotero"],
+    imagenes: ["images/genial.jpg"],
+    descripcion: "Perfecto para fiestas infantiles con ambiente natural"
+  },
+  {
+    id: 3,
+    nombre: "Salón Pekes!",
+    ubicacion: "Zona este",
+    capacidad: 50,
+    precio: 1575000,
+    servicios: ["Pelotero", "Sonido profesional", "Catering básico"],
+    imagenes: ["images/infa4.jpg"],
+    descripcion: "Especialmente diseñado para los más pequeños"
+  },
+  {
+    id: 4,
+    nombre: "Salón Rubí",
+    ubicacion: "Zona sur",
+    capacidad: 200,
+    precio: 3550000,
+    servicios: ["Sonido profesional", "Pantalla gigante", "Catering full"],
+    imagenes: ["images/salonMesaExterior.jpg"],
+    descripcion: "Salón premium para eventos de gran envergadura"
+  },
+  {
+    id: 5,  
+    nombre: "Salón Monster Show Oeste",
+    ubicacion: "Zona Oeste",
+    capacidad: 300,
+    precio: 300000,
+    servicios: ["Sonido profesional", "Iluminación", "Mesas y sillas"],
+    imagenes: ["images/ado4.jpg"],
+    descripcion: "Gran capacidad para eventos masivos"
+  },
+  {
+    id: 6,
+    nombre: "Salón Coder Show",
+    ubicacion: "Centro de la ciudad",
+    capacidad: 400,
+    precio: 4000000,
+    servicios: ["Sonido profesional", "Iluminación", "Mesas y sillas"],
+    imagenes: ["images/ado5.jpg"],
+    descripcion: "El salón más grande de nuestra cadena"
+  }
+];
+
+export const getSalones = () => [...salones];
+// ... otras funciones para salones ...
